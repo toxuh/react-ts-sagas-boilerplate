@@ -66,9 +66,7 @@ module.exports = {
       // are collections of exports
       // so it is ok to don't prefer default export here
       files: [
-        '**/constants.js',
         '**/constants.ts',
-        '**/types.js',
         '**/types.ts',
         '**/utils/index.ts',
         '**/components/index.ts',
@@ -82,43 +80,16 @@ module.exports = {
       // we don't use our tests in the app source
       // so it is ok to import dev dependencies in `*.test.js?(x)` files
       // and props spreading is sometimes a handy feature in tests
-      files: ['**/*.test.js?(x)', '**/*.test.ts?(x)', '**/utils/tests/*'],
+      files: ['**/*.test.ts?(x)', '**/utils/tests/*'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
         'react/jsx-props-no-spreading': 'off',
       },
     },
     {
-      // Storybook is a dev dependency (we don't use it in the app source)
-      files: ['**/*.stories.js?(x)', '**/*.stories.ts?(x)', '**/.storybook/*'],
-      rules: {
-        'import/no-extraneous-dependencies': 'off',
-      },
-    },
-    {
-      // it is ok to write to `config` param in storybook's webpack config
-      // see:
-      // https://storybook.js.org/docs/configurations/custom-webpack-config/
-      files: ['**/.storybook/webpack.config.js'],
-      rules: {
-        'no-param-reassign': [
-          'error',
-          {
-            ignorePropertyModificationsFor: ['config'],
-          },
-        ],
-      },
-    },
-    {
       // these are service files that are not included in the app source
       // so we can adjust some linter rules
-      files: [
-        '**/setupTests.js',
-        '**/setupTests.ts',
-        '**/craco.config.js',
-        '**/jest.config.js',
-        '**/webpack.config.js',
-      ],
+      files: ['**/setupTests.ts'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
         '@typescript-eslint/no-var-requires': 'off',
