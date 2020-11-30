@@ -2,13 +2,13 @@ import { StrictEffect, call, put, takeLatest } from 'redux-saga/effects';
 
 import { fetchExample } from '../../api';
 
-import { ANOTHER_DUMMY_CONST, DUMMY_CONST } from './types';
+import { FETCH_USERS, FETCH_USERS_SUCCESS } from './types';
 
-export function* dummySagaFunction(): Generator<StrictEffect, null, unknown> {
+export function* fetchUsersList(): Generator<StrictEffect, null, unknown> {
   const response = yield call(fetchExample);
 
   yield put({
-    type: ANOTHER_DUMMY_CONST,
+    type: FETCH_USERS_SUCCESS,
     payload: response,
   });
 
@@ -16,5 +16,5 @@ export function* dummySagaFunction(): Generator<StrictEffect, null, unknown> {
 }
 
 export default function* dummySagas(): Generator {
-  yield takeLatest(DUMMY_CONST, dummySagaFunction);
+  yield takeLatest(FETCH_USERS, fetchUsersList);
 }

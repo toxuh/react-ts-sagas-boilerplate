@@ -1,7 +1,7 @@
-import { DummyState } from '../containers/Dummy/types';
+import { UserState } from '../common/Users/types';
 
 export type AnyObject = Record<string, unknown>;
 
 export type GlobalState = {
-  dummy: DummyState;
+  users: UserState;
 };
