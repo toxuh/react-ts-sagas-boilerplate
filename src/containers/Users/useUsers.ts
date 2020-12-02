@@ -17,7 +17,7 @@ const useUsers = (): UseUsersReturnType => {
 
   const fetchUsers = useCallback(() => {
     dispatch(handleFetchUsers());
-  }, [dispatch]);
+  }, []);
 
   return { fetchUsers, usersList };
 };
