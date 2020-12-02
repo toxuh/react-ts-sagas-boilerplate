@@ -1,0 +1,23 @@
+.UserPage {
+  h3 {
+    font-weight: 400;
+    margin-bottom: 25px;
+
+    span {
+      font-size: 16px;
+      font-weight: 300;
+      margin-left: 10px;
+    }
+  }
+
+  table {
+    td {
+      padding: 7px 0;
+
+      &:first-child {
+        font-weight: 300;
+        padding-right: 30px;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { UserState } from '../common/Users/types';
+import { UserState } from '../common/users/types';
 
 export type AnyObject = Record<string, unknown>;
 

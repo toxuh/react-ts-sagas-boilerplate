@@ -10,3 +10,8 @@ export const usersListSelector = createSelector(
   usersSelector,
   (users) => users.list,
 );
+
+export const userSelector = createSelector(
+  usersSelector,
+  (users) => users.user,
+);

@@ -1,16 +1,16 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { handleFetchUsers } from '../../common/Users/actions';
-import { usersListSelector } from '../../common/Users/selectors';
-import { UserType } from '../../common/Users/types';
+import { handleFetchUsers } from '../../common/users/actions';
+import { usersListSelector } from '../../common/users/selectors';
+import { UserType } from '../../common/users/types';
 
-type UseUsersReturnType = {
+type UseUsersListReturnType = {
   fetchUsers: () => void;
   usersList: UserType[];
 };
 
-const useUsers = (): UseUsersReturnType => {
+const useUsersList = (): UseUsersListReturnType => {
   const dispatch = useDispatch();
 
   const usersList = useSelector(usersListSelector);
@@ -22,4 +22,4 @@ const useUsers = (): UseUsersReturnType => {
   return { fetchUsers, usersList };
 };
 
-export default useUsers;
+export default useUsersList;
