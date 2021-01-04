@@ -18,6 +18,7 @@
       & > li {
         display: flex;
         margin: 1.8em 0;
+        position: relative;
 
         & > a {
           color: #68676d;
@@ -27,9 +28,29 @@
           line-height: 2em;
           text-decoration: none;
           width: 100%;
+          z-index: 1;
 
           &:hover {
-            color: #8b8a92;
+            color: #333;
+          }
+        }
+
+        &:before {
+          background: rgba(143, 132, 174, 0.1);
+          border-radius: 1em;
+          content: '';
+          display: none;
+          height: calc(100% + 1.6em);
+          left: -1em;
+          position: absolute;
+          top: -0.8em;
+          width: calc(100% + 2em);
+          z-index: 0;
+        }
+
+        &:hover {
+          &:before {
+            display: block;
           }
         }
       }

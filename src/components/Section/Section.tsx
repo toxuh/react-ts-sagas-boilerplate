@@ -3,15 +3,16 @@ import React from 'react';
 import './Section.scss';
 
 type Props = {
+  caption?: string;
   children: React.ReactNode;
-  description?: string;
   title?: string;
 };
 
-const Section: React.FC<Props> = ({ children, title }) => (
+const Section: React.FC<Props> = ({ caption, children, title }) => (
   <section className="Section">
     {title && <h1>{title}</h1>}
-    {children}
+    {caption && <p className="Caption">{caption}</p>}
+    <main>{children}</main>
   </section>
 );
 
