@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
 }
 
-a:link,
-a:visited {
-  color: #e15f41;
+html, body, #root {
+  height: 100%;
 }
 
-a:hover {
-  color: #e77f67;
+body {
+  font-family: 'Roboto', 'Arial', sans-serif;
 }

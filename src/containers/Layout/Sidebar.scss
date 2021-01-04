@@ -1,0 +1,38 @@
+.Sidebar {
+  background-color: #f4f3f9;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  width: 18em;
+
+  h4 {
+    color: #a6a5ab;
+    font-size: 1em;
+    font-weight: 500;
+  }
+
+  .SideMenu {
+    margin-bottom: 2em;
+
+    ul {
+      & > li {
+        display: flex;
+        margin: 1.8em 0;
+
+        & > a {
+          color: #68676d;
+          display: flex;
+          font-size: 1em;
+          font-weight: 500;
+          line-height: 2em;
+          text-decoration: none;
+          width: 100%;
+
+          &:hover {
+            color: #8b8a92;
+          }
+        }
+      }
+    }
+  }
+}

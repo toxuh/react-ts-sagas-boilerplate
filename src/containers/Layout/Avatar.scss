@@ -1,0 +1,43 @@
+.Avatar {
+  display: flex;
+  margin-bottom: 2.5em;
+
+  & > img {
+    border-radius: 50%;
+    max-width: 3em;
+  }
+
+  .Info {
+    margin: 0 1.4em 0 0.8em;
+
+    .Name {
+      color: #46494e;
+      display: block;
+      font-weight: 500;
+      margin: 0.2em 0 0;
+      white-space: nowrap;
+    }
+
+    .Mail {
+      color: #adacb1;
+      font-size: 0.8em;
+    }
+  }
+
+  .Settings {
+    background-color: #dfe0f1;
+    border: 0;
+    border-radius: 50%;
+    color: #9e9eb6;
+    cursor: pointer;
+    height: 2.7em;
+    line-height: 3.15em;
+    margin-top: 0.5em;
+    text-align: center;
+    width: 2.7em;
+
+    &:hover {
+      background-color: #d2d3e7;
+    }
+  }
+}
