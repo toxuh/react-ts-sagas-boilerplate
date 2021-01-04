@@ -1,7 +1,10 @@
 {
-  "name": "react-boilerplate",
-  "version": "0.1.0",
-  "private": true,
+  "name": "rts-boilerplate",
+  "version": "0.1.1",
+  "private": false,
+  "homepage": "http://toxuh.github.io/rts",
+  "author": "Anton Zakharov <zakharov.toxa@gmail.com> (https://github.com/toxuh))",
+  "license": "MIT",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@umijs/hooks": "^1.9.3",
@@ -58,11 +61,13 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react-hooks": "^4.2.0",
     "extract-react-intl-messages": "^4.1.1",
+    "gh-pages": "^3.1.0",
     "prettier": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "test:all": "react-scripts test --watchAll=false",
     "test:cover": "react-scripts test --watchAll=false --coverage",
