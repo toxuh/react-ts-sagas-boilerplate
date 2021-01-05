@@ -1,87 +1,92 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 import {
-  FaFont,
+  FaBullhorn,
+  FaExchangeAlt,
   FaHome,
-  FaRocket,
-  FaSlackHash,
-  FaTable,
-  FaTasks,
-  FaUsers,
+  FaPaperPlane,
+  FaQuestion,
+  FaShoppingCart,
+  FaUsersCog,
 } from 'react-icons/fa';
 
 import { Badge } from '../../components';
 
 import Avatar from './Avatar';
 
+import messages from './messages';
+
 import './Sidebar.scss';
 
 const Sidebar: React.FC = () => {
+  const intl = useIntl();
+
   return (
     <aside className="Sidebar">
       <Avatar />
-      <h4>Common</h4>
+      <h4>{intl.formatMessage(messages.common)}</h4>
       <nav className="SideMenu">
         <ul>
           <li>
-            <Link to="/">
+            <Link to="/dashboard">
               <Badge color="716fdf">
                 <FaHome />
               </Badge>
-              Dashboard
+              {intl.formatMessage(messages.dashboard)}
             </Link>
           </li>
           <li>
-            <Link to="/typography">
+            <Link to="/campaigns">
               <Badge color="36a6e3">
-                <FaFont />
+                <FaPaperPlane />
               </Badge>
-              Typography
+              {intl.formatMessage(messages.campaigns)}
             </Link>
           </li>
           <li>
-            <Link to="/colors">
+            <Link to="/exchange">
               <Badge color="b24cc0">
-                <FaSlackHash />
+                <FaExchangeAlt />
               </Badge>
-              Colors
+              {intl.formatMessage(messages.exchange)}
             </Link>
           </li>
           <li>
-            <Link to="/components">
+            <Link to="/store">
               <Badge color="21b17c">
-                <FaRocket />
+                <FaShoppingCart />
               </Badge>
-              Components
+              {intl.formatMessage(messages.store)}
             </Link>
           </li>
           <li>
-            <Link to="/forms">
+            <Link to="/referrals">
               <Badge color="fd840b">
-                <FaTable />
+                <FaUsersCog />
               </Badge>
-              Forms
+              {intl.formatMessage(messages.referrals)}
             </Link>
           </li>
         </ul>
       </nav>
-      <h4>APIs</h4>
+      <h4>{intl.formatMessage(messages.info)}</h4>
       <nav className="SideMenu">
         <ul>
           <li>
-            <Link to="/users">
+            <Link to="/news">
               <Badge color="f7727b">
-                <FaUsers />
+                <FaBullhorn />
               </Badge>
-              Users
+              {intl.formatMessage(messages.news)}
             </Link>
           </li>
           <li>
-            <Link to="/todo">
+            <Link to="/help">
               <Badge color="9875f8">
-                <FaTasks />
+                <FaQuestion />
               </Badge>
-              Todo
+              {intl.formatMessage(messages.help)}
             </Link>
           </li>
         </ul>

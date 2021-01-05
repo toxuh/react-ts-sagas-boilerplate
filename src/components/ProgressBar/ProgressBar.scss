@@ -1,0 +1,14 @@
+.ProgressBar {
+  background-color: #d2d3e7;
+  border-radius: 0.5em;
+  height: 2em;
+  overflow: hidden;
+  width: 100%;
+
+  > div {
+    color: #f4f3f9;
+    height: 100%;
+    line-height: 2em;
+    text-align: center;
+  }
+}

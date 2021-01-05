@@ -13,7 +13,7 @@ const Avatar: React.FC = () => (
       <span className="Name">Samantha Doe</span>
       <span className="Mail">samantha.doe@gmail.com</span>
     </div>
-    <Link className="Settings" to="/settings">
+    <Link className="Settings" to="/account">
       <FaCog />
     </Link>
   </section>

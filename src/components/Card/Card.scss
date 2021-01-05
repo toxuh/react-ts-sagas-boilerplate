@@ -1,0 +1,56 @@
+.Card {
+  background-color: #fefeff;
+  border-radius: 0.8em;
+  box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2em;
+  overflow: hidden;
+  padding: 1.5em 1.3em;
+  position: relative;
+
+  .WithBadge {
+    margin-bottom: 1em;
+
+    .Badge {
+      display: inline-block;
+      margin-right: 0.6em;
+    }
+
+    h3 {
+      display: inline;
+      position: relative;
+      top: -0.2em;
+    }
+  }
+
+  h3 {
+    color: #46474b;
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 0.8em;
+  }
+
+  .Link {
+    bottom: 0;
+    height: 2.8em;
+    left: 0;
+    line-height: 2.8em;
+    position: absolute;
+    width: 100%;
+
+    a {
+      color: #216fed;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        background-color: #216fed;
+        color: #fff;
+      }
+    }
+  }
+
+  &.withLink {
+    padding-bottom: 4em;
+  }
+}

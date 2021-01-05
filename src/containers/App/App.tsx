@@ -1,31 +1,30 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 
-import Colors from '../Colors/Colors';
-import Components from '../Components/Components';
+import Account from '../Account/Account';
+import Campaigns from '../Campaigns/Campaigns';
 import Dashboard from '../Dashboard/Dashboard';
-import Forms from '../Forms/Forms';
+import Exchange from '../Exchange/Exchange';
+import Help from '../Help/Help';
 import Layout from '../Layout/Layout';
-import Settings from '../Settings/Settings';
-import Todo from '../Todo/Todo';
-import Typography from '../Typography/Typography';
-import UserPage from '../UserPage/UserPage';
-import UsersList from '../UsersList/UsersList';
+import News from '../News/News';
+import Referrals from '../Referrals/Referrals';
+import Store from '../Store/Store';
 
 const App: React.FC = () => {
   return (
     <Layout>
       <Switch>
-        <Route path="/" component={Dashboard} exact />
-        <Route path="/typography" component={Typography} exact />
-        <Route path="/colors" component={Colors} exact />
-        <Route path="/components" component={Components} exact />
-        <Route path="/forms" component={Forms} exact />
-        <Route path="/users" component={UsersList} exact />
-        <Route path="/users/:id" component={UserPage} exact />
-        <Route path="/todo" component={Todo} exact />
-        <Route path="/settings" component={Settings} exact />
+        <Route path="/account" component={Account} exact />
+        <Route path="/dashboard" component={Dashboard} exact />
+        <Route path="/campaigns" component={Campaigns} exact />
+        <Route path="/exchange" component={Exchange} exact />
+        <Route path="/store" component={Store} exact />
+        <Route path="/referrals" component={Referrals} exact />
+        <Route path="/news" component={News} exact />
+        <Route path="/help" component={Help} exact />
       </Switch>
+      <Redirect to="/dashboard" />
     </Layout>
   );
 };

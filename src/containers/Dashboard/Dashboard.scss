@@ -1,0 +1,53 @@
+.Dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+
+  .BigText {
+    color: #46474b;
+    display: block;
+    font-size: 2.2em;
+    font-weight: 500;
+    margin-top: 0.8em;
+    text-align: center;
+
+    svg {
+      height: 0.8em;
+      margin-right: 0.18em;
+      position: relative;
+      top: 0.01em;
+      width: 0.8em;
+    }
+  }
+
+  .Daily {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > section {
+      margin-bottom: 2em;
+      width: 49%;
+
+      > h5 {
+        color: #9da2a7;
+        font-size: 1em;
+        font-weight: 500;
+        margin-bottom: 0.6em;
+      }
+    }
+  }
+
+  .Level {
+    h5 {
+      font-size: 1em;
+      font-weight: 500;
+      margin: 2em 0 1em;
+    }
+
+    &_group {
+      margin-bottom: 1em;
+    }
+  }
+}

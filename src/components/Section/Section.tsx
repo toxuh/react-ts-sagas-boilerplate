@@ -5,14 +5,20 @@ import './Section.scss';
 type Props = {
   caption?: string;
   children: React.ReactNode;
+  className?: string;
   title?: string;
 };
 
-const Section: React.FC<Props> = ({ caption, children, title }) => (
+const Section: React.FC<Props> = ({
+  caption,
+  children,
+  className = '',
+  title,
+}) => (
   <section className="Section">
     {title && <h1>{title}</h1>}
     {caption && <p className="Caption">{caption}</p>}
-    <main>{children}</main>
+    <main className={className}>{children}</main>
   </section>
 );
 
