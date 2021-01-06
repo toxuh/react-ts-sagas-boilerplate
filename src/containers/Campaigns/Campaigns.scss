@@ -1,0 +1,54 @@
+.Campaigns {
+  .List {
+    width: 100%;
+
+    > li {
+      display: flex;
+      margin: 0 0 1em;
+      padding: 1em 0;
+
+      .Status {
+        padding-right: 1.5em;
+      }
+
+      .Heading {
+        overflow: hidden;
+        width: 60%;
+
+        h5 {
+          font-size: 1em;
+          margin-bottom: 0.2em;
+        }
+
+        p {
+          color: #9da2a7;
+          font-size: 0.9em;
+          margin-bottom: 0;
+        }
+      }
+
+      .Progress {
+        flex-grow: 1;
+        line-height: 2.5em;
+      }
+
+      .Actions {
+        button {
+          background-color: #fff;
+          border: 0;
+          border-radius: 50%;
+          cursor: pointer;
+          display: block;
+          font-size: 1em;
+          height: 2.5em;
+          line-height: 2.8em;
+          width: 2.5em;
+
+          &:hover {
+            background-color: #dfe0f1;
+          }
+        }
+      }
+    }
+  }
+}

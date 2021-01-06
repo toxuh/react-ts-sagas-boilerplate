@@ -1,0 +1,56 @@
+.StatusIcon {
+  background-color: #dfe0f0;
+  color: #b4b8bc;
+  text-align: center;
+
+  &.small {
+    font-size: 0.8em;
+    height: 2.3em;
+    line-height: 2.6em;
+    width: 2.3em;
+  }
+
+  &.default {
+    height: 2.5em;
+    line-height: 2.8em;
+    width: 2.5em;
+  }
+
+  &.big {
+    height: 3em;
+    line-height: 3.3em;
+    width: 3em;
+  }
+
+  &.success {
+    background-color: #d7efe7;
+    color: #21b17c;
+  }
+
+  &.progress {
+    background-color: #d2eaf7;
+    color: #36a6e3;
+  }
+
+  &.paused {
+    background-color: #fff5d7;
+    color: #fd840b;
+  }
+
+  &.archived {
+    background-color: #e9ebec;
+    color: #9da2a7;
+  }
+
+  &.square {
+    border-radius: 0;
+  }
+
+  &.rounded {
+    border-radius: 0.6em;
+  }
+
+  &.circle {
+    border-radius: 50%;
+  }
+}

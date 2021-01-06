@@ -1,0 +1,35 @@
+.Modal {
+  align-items: center;
+  backdrop-filter: blur(0.2em);
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+
+  &.hide {
+    display: none;
+  }
+
+  > div {
+    background-color: #f4f3f9;
+    border-radius: 1em;
+    box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.4);
+    height: 50vh;
+    padding: 1.5em;
+    position: relative;
+    width: 50vw;
+
+    > .CloseIcon {
+      color: #68676d;
+      cursor: pointer;
+      position: absolute;
+      top: 1em;
+      right: 1em;
+    }
+  }
+}

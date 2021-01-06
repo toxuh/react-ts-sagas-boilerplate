@@ -3,6 +3,30 @@
 
   h1 {
     color: #46494e;
+
+    button {
+      background-color: #21b17c;
+      border: 0;
+      border-radius: 0.5em;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.63em;
+      font-weight: 500;
+      margin-left: 1em;
+      margin-bottom: -5px;
+      padding: 0.3em 0.5em;
+      position: relative;
+      top: -0.2em;
+
+      &:hover {
+        background-color: #1fa071;
+      }
+
+      &:focus {
+        border: 0;
+        outline: none;
+      }
+    }
   }
 
   .Caption {
