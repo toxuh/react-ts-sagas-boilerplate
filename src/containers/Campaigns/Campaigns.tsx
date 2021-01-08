@@ -3,7 +3,9 @@ import { useIntl } from 'react-intl';
 import moment from 'moment';
 import { FaEllipsisV } from 'react-icons/fa';
 
-import { Modal, Section, StatusIcon } from '../../components';
+import { Modal, Pagination, Section, StatusIcon } from '../../components';
+
+import NewCampaign from '../Forms/NewCampaign/NewCampaign';
 
 import messages from './messages';
 
@@ -117,11 +119,18 @@ const Campaigns: React.FC = () => {
           </div>
         </li>
       </ul>
+      <Pagination pages={3} />
       <Modal
         isOpened={createNewModalOpened}
         onClose={() => toggleCreateModal(false)}
       >
-        <div>123</div>
+        <div>
+          <h4>{intl.formatMessage(messages.newCampaign)}</h4>
+          <NewCampaign
+            handleCloseModal={() => toggleCreateModal(false)}
+            handleSubmitForm={(data) => console.log(data)}
+          />
+        </div>
       </Modal>
     </Section>
   );

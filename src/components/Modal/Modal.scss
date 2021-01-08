@@ -16,10 +16,10 @@
   }
 
   > div {
-    background-color: #f4f3f9;
+    background-color: #fff;
     border-radius: 1em;
     box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.4);
-    height: 50vh;
+    min-height: 50vh;
     padding: 1.5em;
     position: relative;
     width: 50vw;
@@ -30,6 +30,12 @@
       position: absolute;
       top: 1em;
       right: 1em;
+    }
+
+    h4 {
+      font-size: 1.3em;
+      font-weight: 500;
+      margin-bottom: 1em;
     }
   }
 }

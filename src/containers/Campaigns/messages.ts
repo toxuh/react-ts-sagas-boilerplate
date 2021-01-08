@@ -17,4 +17,8 @@ export default defineMessages({
     id: 'Campaigns.started',
     defaultMessage: 'Campaign started',
   },
+  newCampaign: {
+    id: 'Campaigns.newCampaign',
+    defaultMessage: 'New campaign',
+  },
 });

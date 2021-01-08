@@ -1,0 +1,29 @@
+.Pagination {
+  margin-top: 2em;
+
+  > ul {
+    display: flex;
+    justify-content: center;
+
+    > li {
+      border-radius: 50%;
+      cursor: pointer;
+      display: block;
+      height: 2em;
+      line-height: 2em;
+      margin: 0 1em 0 0;
+      text-align: center;
+      width: 2em;
+
+      &:hover {
+        background-color: #d2d3e7;
+      }
+
+      &.active {
+        background-color: #9da2a7;
+        color: #f4f3f9;
+        cursor: default;
+      }
+    }
+  }
+}
