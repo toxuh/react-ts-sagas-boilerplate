@@ -6,12 +6,12 @@ import { UserState } from './types';
 
 export const usersSelector = (state: GlobalState): UserState => state.users;
 
-export const usersListSelector = createSelector(
+export const isLoggedSelector = createSelector(
   usersSelector,
-  (users) => users.list,
+  (users) => users.isLogged,
 );
 
 export const userSelector = createSelector(
   usersSelector,
-  (users) => users.user,
+  (users) => users.data,
 );

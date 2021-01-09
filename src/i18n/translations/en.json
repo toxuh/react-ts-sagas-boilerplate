@@ -43,5 +43,10 @@
   "Layout.info": "Info",
   "Layout.news": "News",
   "Layout.referrals": "Referrals",
-  "Layout.store": "Store"
+  "Layout.store": "Store",
+  "Sign.email": "E-mail",
+  "Sign.password": "Password",
+  "Sign.submit": "Submit",
+  "Sign.title": "Sign Up",
+  "Sign.username": "Username"
 }

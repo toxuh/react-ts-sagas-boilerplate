@@ -1,15 +1,28 @@
 import {
-  FETCH_USER,
-  FETCH_USERS,
-  FetchUserAction,
-  FetchUsersListAction,
+  CHECK_USER,
+  CheckUserActionType,
+  LOGIN_USER,
+  LoginUserActionType,
+  REGISTER_USER,
+  RegisterUserActionType,
+  UserLoginType,
+  UserRegistrationType,
 } from './types';
 
-export const handleFetchUsers = (): FetchUsersListAction => ({
-  type: FETCH_USERS,
+export const checkUserAction = (): CheckUserActionType => ({
+  type: CHECK_USER,
 });
 
-export const handleFetchUserInfo = (id: string): FetchUserAction => ({
-  type: FETCH_USER,
-  payload: { id },
+export const registerUserAction = (
+  payload: UserRegistrationType,
+): RegisterUserActionType => ({
+  type: REGISTER_USER,
+  payload,
+});
+
+export const loginUserAction = (
+  payload: UserLoginType,
+): LoginUserActionType => ({
+  type: LOGIN_USER,
+  payload,
 });

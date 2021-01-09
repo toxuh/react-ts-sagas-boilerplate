@@ -9,9 +9,25 @@ import Help from '../Help/Help';
 import Layout from '../Layout/Layout';
 import News from '../News/News';
 import Referrals from '../Referrals/Referrals';
+import Sign from '../Sign/Sign';
 import Store from '../Store/Store';
 
+import useApp from './useApp';
+
 const App: React.FC = () => {
+  const { isLogged } = useApp();
+
+  if (!isLogged) {
+    return (
+      <>
+        <Switch>
+          <Route path="/sign" component={Sign} exact />
+        </Switch>
+        <Redirect to="/sign" />
+      </>
+    );
+  }
+
   return (
     <Layout>
       <Switch>

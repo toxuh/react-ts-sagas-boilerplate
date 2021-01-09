@@ -2,16 +2,34 @@ import { StrictEffect } from 'redux-saga/effects';
 
 import handleRequest from '../utils/handleRequest';
 
-import { FETCH_USER, FETCH_USERS } from '../../common/users/types';
+import {
+  CHECK_USER,
+  REGISTER_USER,
+  UserLoginType,
+  UserRegistrationType,
+} from '../../common/users/types';
 
-export const fetchUsersList = (): Generator<StrictEffect> =>
-  handleRequest(FETCH_USERS, {
-    url: 'users',
+import { AuthURL, TokenURL } from './utils';
+
+/* eslint-disable-next-line */
+export const checkUser = (): Generator<StrictEffect> =>
+  handleRequest(CHECK_USER, {
+    url: AuthURL('me/'),
     method: 'get',
   });
 
-export const fetchUser = ({ id }: { id: string }): Generator<StrictEffect> =>
-  handleRequest(FETCH_USER, {
-    url: `users/${id}`,
-    method: 'get',
+export const registerUser = (
+  data: UserRegistrationType,
+): Generator<StrictEffect> =>
+  handleRequest(REGISTER_USER, {
+    url: AuthURL(''),
+    method: 'post',
+    data,
+  });
+
+export const loginUser = (data: UserLoginType): Generator<StrictEffect> =>
+  handleRequest(CHECK_USER, {
+    url: TokenURL('login/'),
+    method: 'post',
+    data,
   });

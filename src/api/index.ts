@@ -1,4 +1,4 @@
-import { fetchUser, fetchUsersList } from './users';
+import { checkUser, loginUser, registerUser } from './users';
 
 /* eslint-disable-next-line */
-export { fetchUser, fetchUsersList };
+export { checkUser, loginUser, registerUser };

@@ -1,0 +1,43 @@
+.Sign {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+
+  form {
+    display: block;
+    max-width: 25em;
+    min-height: 50vh;
+    width: 80vw;
+
+    h3 {
+      font-size: 1.6em;
+      font-weight: 500;
+      margin-bottom: 0.8em;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 2em;
+
+      input {
+        border: 1px solid #d2d3e7;
+        border-radius: 0.6em;
+        display: block;
+        height: 3em;
+        margin: 0.4em 0;
+        padding: 0 1em;
+        width: 100%;
+
+        &:focus {
+          border-color: #68676d;
+          outline: 0;
+        }
+      }
+    }
+
+    .ButtonHolder {
+      text-align: center;
+    }
+  }
+}

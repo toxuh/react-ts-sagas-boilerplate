@@ -43,5 +43,10 @@
   "Layout.info": "Информация",
   "Layout.news": "Новости",
   "Layout.referrals": "Реферралы",
-  "Layout.store": "Магазин"
+  "Layout.store": "Магазин",
+  "Sign.email": "E-mail",
+  "Sign.password": "Пароль",
+  "Sign.submit": "Зарегистрироваться",
+  "Sign.title": "Регистрация",
+  "Sign.username": "Юзернейм"
 }

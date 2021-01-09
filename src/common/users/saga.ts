@@ -1,23 +1,32 @@
 import { StrictEffect, all, call, takeLatest } from 'redux-saga/effects';
 
-import { fetchUser, fetchUsersList } from '../../api';
+import { checkUser, loginUser, registerUser } from '../../api';
 
-import { handleFetchUserInfo } from './actions';
-import { FETCH_USER, FETCH_USERS } from './types';
+import { loginUserAction, registerUserAction } from './actions';
+import { CHECK_USER, LOGIN_USER, REGISTER_USER } from './types';
 
-export function* fetchUsers(): Generator<StrictEffect> {
-  yield call(fetchUsersList);
+export function* checkUserData(): Generator<StrictEffect> {
+  yield call(checkUser);
 }
 
-export function* fetchUserData({
+export function* login({
   payload,
-}: ReturnType<typeof handleFetchUserInfo>): Generator<StrictEffect> {
-  yield call(fetchUser, { id: payload.id });
+}: ReturnType<typeof loginUserAction>): Generator<StrictEffect> {
+  yield call(loginUser, { ...payload });
+}
+
+export function* register({
+  payload,
+}: ReturnType<typeof registerUserAction>): Generator<StrictEffect> {
+  const response = yield call(registerUser, { ...payload });
+
+  console.log(response);
 }
 
 export default function* usersSagas(): Generator {
   yield all([
-    takeLatest(FETCH_USERS, fetchUsers),
-    takeLatest(FETCH_USER, fetchUserData),
+    takeLatest(CHECK_USER, checkUserData),
+    takeLatest(REGISTER_USER, register),
+    takeLatest(LOGIN_USER, login),
   ]);
 }
