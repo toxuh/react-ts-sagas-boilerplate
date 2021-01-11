@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { useFormik } from 'formik';
 
@@ -10,10 +11,10 @@ import messages from './messages';
 
 import './Sign.scss';
 
-const Sign: React.FC = () => {
+const SignUp: React.FC = () => {
   const intl = useIntl();
 
-  const { register } = useSign();
+  const { isRegistrationCompleted, register } = useSign();
 
   const initialValues = {
     email: '',
@@ -25,6 +26,16 @@ const Sign: React.FC = () => {
     initialValues,
     onSubmit: register,
   });
+
+  if (isRegistrationCompleted) {
+    return (
+      <div className="Sign">
+        <p>
+          Now <Link to="sign-in">log in</Link>.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="Sign">
@@ -64,10 +75,13 @@ const Sign: React.FC = () => {
           <Button htmlType="submit" type="primary">
             {intl.formatMessage(messages.submit)}
           </Button>
+          <Link to="/sign-in">
+            {intl.formatMessage(messages.alreadyRegistered)}
+          </Link>
         </div>
       </form>
     </div>
   );
 };
 
-export default Sign;
+export default SignUp;

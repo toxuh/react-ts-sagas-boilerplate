@@ -1,5 +1,8 @@
-export const CHECK_USER = 'CHECK_USER';
-export const CHECK_USER_SUCCESS = 'CHECK_USER/SUCCESS';
+export const FETCH_USER_DATA = 'FETCH_USER_DATA';
+export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA/SUCCESS';
+export const FETCH_USER_DATA_ERROR = 'FETCH_USER_DATA/ERROR';
+
+export const TOGGLE_LOGIN = 'TOGGLE_LOGIN';
 
 export const REGISTER_USER = 'REGISTER_USER';
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER/SUCCESS';
@@ -33,17 +36,22 @@ export type TokenType = {
 };
 
 export type UserState = {
+  registrationCompleted: boolean;
   isLogged: boolean;
   data: UserType | undefined;
 };
 
-export type CheckUserActionType = {
-  type: typeof CHECK_USER;
+export type FetchUserDataActionType = {
+  type: typeof FETCH_USER_DATA;
 };
 
-type SuccessCheckUserActionType = {
-  type: typeof CHECK_USER_SUCCESS;
+type SuccessFetchUserDataActionType = {
+  type: typeof FETCH_USER_DATA_SUCCESS;
   payload: UserType;
+};
+
+type ErrorFetchUserDataActionType = {
+  type: typeof FETCH_USER_DATA_ERROR;
 };
 
 export type RegisterUserActionType = {
@@ -53,7 +61,6 @@ export type RegisterUserActionType = {
 
 type SuccessRegisterUserActionType = {
   type: typeof REGISTER_USER_SUCCESS;
-  payload: UserType;
 };
 
 type ErrorRegisterUserActionType = {
@@ -74,12 +81,19 @@ type ErrorLoginUserActionType = {
   type: typeof LOGIN_USER_ERROR;
 };
 
+export type ToggleLoginActionType = {
+  type: typeof TOGGLE_LOGIN;
+  payload: boolean;
+};
+
 export type UserActionTypes =
-  | CheckUserActionType
-  | SuccessCheckUserActionType
+  | FetchUserDataActionType
+  | SuccessFetchUserDataActionType
+  | ErrorFetchUserDataActionType
   | RegisterUserActionType
   | SuccessRegisterUserActionType
   | ErrorRegisterUserActionType
   | LoginUserActionType
   | SuccessLoginUserActionType
-  | ErrorLoginUserActionType;
+  | ErrorLoginUserActionType
+  | ToggleLoginActionType;

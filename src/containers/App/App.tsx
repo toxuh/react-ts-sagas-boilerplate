@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 
 import Account from '../Account/Account';
@@ -9,21 +9,27 @@ import Help from '../Help/Help';
 import Layout from '../Layout/Layout';
 import News from '../News/News';
 import Referrals from '../Referrals/Referrals';
-import Sign from '../Sign/Sign';
+import SignIn from '../Sign/SignIn';
+import SignUp from '../Sign/SignUp';
 import Store from '../Store/Store';
 
 import useApp from './useApp';
 
 const App: React.FC = () => {
-  const { isLogged } = useApp();
+  const { bootstrap, isLogged } = useApp();
+
+  useEffect(() => {
+    bootstrap();
+  }, []);
 
   if (!isLogged) {
     return (
       <>
         <Switch>
-          <Route path="/sign" component={Sign} exact />
+          <Route path="/sign-up" component={SignUp} exact />
+          <Route path="/sign-in" component={SignIn} exact />
         </Switch>
-        <Redirect to="/sign" />
+        <Redirect to="/sign-up" />
       </>
     );
   }

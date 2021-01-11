@@ -9,11 +9,10 @@ export default (config: AxiosRequestConfig): AxiosPromise => {
   const configWithUrl = {
     ...config,
     url: `${BASE_API_URL}${config.url}`,
+    headers: {
+      Authorization: token ? `Token ${token}` : '',
+    },
   };
-
-  if (token) {
-    configWithUrl.headers.Authorization = token ? `Token ${token}` : '';
-  }
 
   return axios(configWithUrl).then((response) => response.data);
 };

@@ -3,7 +3,8 @@ import { StrictEffect } from 'redux-saga/effects';
 import handleRequest from '../utils/handleRequest';
 
 import {
-  CHECK_USER,
+  FETCH_USER_DATA,
+  LOGIN_USER,
   REGISTER_USER,
   UserLoginType,
   UserRegistrationType,
@@ -11,9 +12,8 @@ import {
 
 import { AuthURL, TokenURL } from './utils';
 
-/* eslint-disable-next-line */
-export const checkUser = (): Generator<StrictEffect> =>
-  handleRequest(CHECK_USER, {
+export const fetchUserInfo = (): Generator<StrictEffect> =>
+  handleRequest(FETCH_USER_DATA, {
     url: AuthURL('me/'),
     method: 'get',
   });
@@ -28,7 +28,7 @@ export const registerUser = (
   });
 
 export const loginUser = (data: UserLoginType): Generator<StrictEffect> =>
-  handleRequest(CHECK_USER, {
+  handleRequest(LOGIN_USER, {
     url: TokenURL('login/'),
     method: 'post',
     data,

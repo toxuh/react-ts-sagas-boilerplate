@@ -1,0 +1,13 @@
+@import "variables";
+
+a {
+  &:link,
+  &:visited {
+    color: $blue;
+  };
+
+  &:hover {
+    color: $blue-hover;
+    text-decoration: none;
+  }
+}

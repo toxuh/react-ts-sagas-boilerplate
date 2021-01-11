@@ -21,4 +21,20 @@ export default defineMessages({
     id: 'Sign.submit',
     defaultMessage: 'Submit',
   },
+  alreadyRegistered: {
+    id: 'Sign.alreadyRegistered',
+    defaultMessage: 'Already registered?',
+  },
+  notAMember: {
+    id: 'Sign.notAMember',
+    defaultMessage: 'Not a member? Register.',
+  },
+  login: {
+    id: 'Sign.login',
+    defaultMessage: 'Login',
+  },
+  loginSubmit: {
+    id: 'Sign.loginSubmit',
+    defaultMessage: 'Login',
+  },
 });
