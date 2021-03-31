@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import moment from 'moment';
-import { FaEllipsisV } from 'react-icons/fa';
+import { FaArchive, FaTrashAlt } from 'react-icons/fa';
 
 import { Modal, Pagination, Section, StatusIcon } from '../../components';
 
@@ -39,7 +39,10 @@ const Campaigns: React.FC = () => {
           <div className="Progress">0 / 3500</div>
           <div className="Actions">
             <button type="button">
-              <FaEllipsisV />
+              <FaArchive />
+            </button>
+            <button type="button">
+              <FaTrashAlt />
             </button>
           </div>
         </li>
@@ -60,7 +63,10 @@ const Campaigns: React.FC = () => {
           <div className="Progress">200 / 799</div>
           <div className="Actions">
             <button type="button">
-              <FaEllipsisV />
+              <FaArchive />
+            </button>
+            <button type="button">
+              <FaTrashAlt />
             </button>
           </div>
         </li>
@@ -78,7 +84,10 @@ const Campaigns: React.FC = () => {
           <div className="Progress">10 / 100</div>
           <div className="Actions">
             <button type="button">
-              <FaEllipsisV />
+              <FaArchive />
+            </button>
+            <button type="button">
+              <FaTrashAlt />
             </button>
           </div>
         </li>
@@ -96,7 +105,10 @@ const Campaigns: React.FC = () => {
           <div className="Progress">500 / 500</div>
           <div className="Actions">
             <button type="button">
-              <FaEllipsisV />
+              <FaArchive />
+            </button>
+            <button type="button">
+              <FaTrashAlt />
             </button>
           </div>
         </li>
@@ -114,7 +126,10 @@ const Campaigns: React.FC = () => {
           <div className="Progress">300 / 500</div>
           <div className="Actions">
             <button type="button">
-              <FaEllipsisV />
+              <FaArchive />
+            </button>
+            <button type="button">
+              <FaTrashAlt />
             </button>
           </div>
         </li>
