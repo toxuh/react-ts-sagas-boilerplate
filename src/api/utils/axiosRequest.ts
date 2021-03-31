@@ -8,7 +8,7 @@ export default (config: AxiosRequestConfig): AxiosPromise => {
 
   const configWithUrl = {
     ...config,
-    url: `${BASE_API_URL}${config.url}`,
+    url: `${BASE_API_URL}${config.url}/`,
     headers: {
       Authorization: token ? `Token ${token}` : '',
     },

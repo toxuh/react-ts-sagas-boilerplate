@@ -1,99 +1,55 @@
-export const FETCH_USER_DATA = 'FETCH_USER_DATA';
-export const FETCH_USER_DATA_SUCCESS = 'FETCH_USER_DATA/SUCCESS';
-export const FETCH_USER_DATA_ERROR = 'FETCH_USER_DATA/ERROR';
+export const FETCH_CAMPAIGNS_LIST = 'FETCH_CAMPAIGNS_LIST';
+export const FETCH_CAMPAIGNS_LIST_SUCCESS = 'FETCH_CAMPAIGNS_LIST/SUCCESS';
+export const FETCH_CAMPAIGNS_LIST_ERROR = 'FETCH_CAMPAIGNS_LIST/ERROR';
 
-export const TOGGLE_LOGIN = 'TOGGLE_LOGIN';
+export const DELETE_CAMPAIGN_BY_ID = 'DELETE_CAMPAIGN_BY_ID';
+export const DELETE_CAMPAIGN_BY_ID_SUCCESS = 'DELETE_CAMPAIGN_BY_ID/SUCCESS';
+export const DELETE_CAMPAIGN_BY_ID_ERROR = 'DELETE_CAMPAIGN_BY_ID/ERROR';
 
-export const REGISTER_USER = 'REGISTER_USER';
-export const REGISTER_USER_SUCCESS = 'REGISTER_USER/SUCCESS';
-export const REGISTER_USER_ERROR = 'REGISTER_USER/ERROR';
+export const ARCHIVE_CAMPAIGN_BY_ID = 'ARCHIVE_CAMPAIGN_BY_ID';
+export const ARCHIVE_CAMPAIGN_BY_ID_SUCCESS = 'ARCHIVE_CAMPAIGN_BY_ID/SUCCESS';
+export const ARCHIVE_CAMPAIGN_BY_ID_ERROR = 'ARCHIVE_CAMPAIGN_BY_ID/ERROR';
 
-export const LOGIN_USER = 'LOGIN_USER';
-export const LOGIN_USER_SUCCESS = 'LOGIN_USER/SUCCESS';
-export const LOGIN_USER_ERROR = 'LOGIN_USER/ERROR';
-
-export type UserType = {
+export type CampaignType = {
   id: number;
-  email: string;
-  firstName: string;
-  lastName: string;
-  username: string;
+  name: string;
+  progress: number;
+  startedAt: string;
+  status: undefined | 'archived' | 'progress' | 'paused' | 'success';
+  total: number;
 };
 
-export type UserRegistrationType = {
-  email: string;
-  username: string;
-  password: string;
+export type CampaignsState = {
+  isFetching: boolean;
+  list: CampaignType[] | undefined;
 };
 
-export type UserLoginType = {
-  email: string;
-  password: string;
+export type FetchCampaignsListActionType = {
+  type: typeof FETCH_CAMPAIGNS_LIST;
 };
 
-export type TokenType = {
-  token: string;
+export type FetchCampaignsListSuccessActionType = {
+  type: typeof FETCH_CAMPAIGNS_LIST_SUCCESS;
+  payload: CampaignType[];
 };
 
-export type UserState = {
-  registrationCompleted: boolean;
-  isLogged: boolean;
-  data: UserType | undefined;
+export type FetchCampaignsListErrorActionType = {
+  type: typeof FETCH_CAMPAIGNS_LIST_ERROR;
 };
 
-export type FetchUserDataActionType = {
-  type: typeof FETCH_USER_DATA;
+export type DeleteCampaignByIdActionType = {
+  type: typeof DELETE_CAMPAIGN_BY_ID;
+  payload: number;
 };
 
-type SuccessFetchUserDataActionType = {
-  type: typeof FETCH_USER_DATA_SUCCESS;
-  payload: UserType;
+export type ArchiveCampaignByIdActionType = {
+  type: typeof ARCHIVE_CAMPAIGN_BY_ID;
+  payload: number;
 };
 
-type ErrorFetchUserDataActionType = {
-  type: typeof FETCH_USER_DATA_ERROR;
-};
-
-export type RegisterUserActionType = {
-  type: typeof REGISTER_USER;
-  payload: UserRegistrationType;
-};
-
-type SuccessRegisterUserActionType = {
-  type: typeof REGISTER_USER_SUCCESS;
-};
-
-type ErrorRegisterUserActionType = {
-  type: typeof REGISTER_USER_ERROR;
-};
-
-export type LoginUserActionType = {
-  type: typeof LOGIN_USER;
-  payload: UserLoginType;
-};
-
-type SuccessLoginUserActionType = {
-  type: typeof LOGIN_USER_SUCCESS;
-  payload: TokenType;
-};
-
-type ErrorLoginUserActionType = {
-  type: typeof LOGIN_USER_ERROR;
-};
-
-export type ToggleLoginActionType = {
-  type: typeof TOGGLE_LOGIN;
-  payload: boolean;
-};
-
-export type UserActionTypes =
-  | FetchUserDataActionType
-  | SuccessFetchUserDataActionType
-  | ErrorFetchUserDataActionType
-  | RegisterUserActionType
-  | SuccessRegisterUserActionType
-  | ErrorRegisterUserActionType
-  | LoginUserActionType
-  | SuccessLoginUserActionType
-  | ErrorLoginUserActionType
-  | ToggleLoginActionType;
+export type CampaignActionTypes =
+  | FetchCampaignsListActionType
+  | FetchCampaignsListErrorActionType
+  | FetchCampaignsListSuccessActionType
+  | DeleteCampaignByIdActionType
+  | ArchiveCampaignByIdActionType;

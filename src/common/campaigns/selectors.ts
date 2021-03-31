@@ -2,21 +2,17 @@ import { createSelector } from 'reselect';
 
 import { GlobalState } from '../../types';
 
-import { UserState } from './types';
+import { CampaignsState } from './types';
 
-export const usersSelector = (state: GlobalState): UserState => state.users;
+export const campaignsSelector = (state: GlobalState): CampaignsState =>
+  state.campaigns;
 
-export const isRegistrationCompletedSelector = createSelector(
-  usersSelector,
-  (users) => users.registrationCompleted,
+export const isCampaignsFetchingSelector = createSelector(
+  campaignsSelector,
+  (campaigns) => campaigns.isFetching,
 );
 
-export const isLoggedSelector = createSelector(
-  usersSelector,
-  (users) => users.isLogged,
-);
-
-export const userSelector = createSelector(
-  usersSelector,
-  (users) => users.data,
+export const campaignsListSelector = createSelector(
+  campaignsSelector,
+  (campaigns) => campaigns.list,
 );

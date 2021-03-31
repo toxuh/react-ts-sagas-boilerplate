@@ -1,4 +1,16 @@
+import {
+  archiveCampaignApi,
+  deleteCampaignApi,
+  fetchCampaignsListApi,
+} from './campaigns';
 import { fetchUserInfo, loginUser, registerUser } from './users';
 
 /* eslint-disable-next-line */
-export { fetchUserInfo, loginUser, registerUser };
+export {
+  archiveCampaignApi,
+  deleteCampaignApi,
+  fetchCampaignsListApi,
+  fetchUserInfo,
+  loginUser,
+  registerUser,
+};

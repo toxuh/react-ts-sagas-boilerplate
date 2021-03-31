@@ -14,7 +14,7 @@ import { AuthURL, TokenURL } from './utils';
 
 export const fetchUserInfo = (): Generator<StrictEffect> =>
   handleRequest(FETCH_USER_DATA, {
-    url: AuthURL('me/'),
+    url: AuthURL('me'),
     method: 'get',
   });
 
@@ -29,7 +29,7 @@ export const registerUser = (
 
 export const loginUser = (data: UserLoginType): Generator<StrictEffect> =>
   handleRequest(LOGIN_USER, {
-    url: TokenURL('login/'),
+    url: TokenURL('login'),
     method: 'post',
     data,
   });

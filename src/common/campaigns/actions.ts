@@ -1,25 +1,33 @@
-import { FETCH_USER_DATA, FetchUserDataActionType } from './types';
+import {
+  ARCHIVE_CAMPAIGN_BY_ID,
+  ArchiveCampaignByIdActionType,
+  DELETE_CAMPAIGN_BY_ID,
+  DeleteCampaignByIdActionType,
+  FETCH_CAMPAIGNS_LIST,
+  FetchCampaignsListActionType,
+} from './types';
 
-export const fetchUserDataAction = (): FetchUserDataActionType => ({
-  type: FETCH_USER_DATA,
-});
-
-export const registerUserAction = (
-  payload: UserRegistrationType,
-): RegisterUserActionType =>
+export const fetchCampaignsListAction = (): FetchCampaignsListActionType =>
   ({
-    type: REGISTER_USER,
-    payload,
+    type: FETCH_CAMPAIGNS_LIST,
   } as const);
 
-export const loginUserAction = (payload: UserLoginType): LoginUserActionType =>
+export const deleteCampaignByIdAction = ({
+  id,
+}: {
+  id: number;
+}): DeleteCampaignByIdActionType =>
   ({
-    type: LOGIN_USER,
-    payload,
+    type: DELETE_CAMPAIGN_BY_ID,
+    payload: id,
   } as const);
 
-export const toggleLogin = (payload: boolean): ToggleLoginActionType =>
+export const archiveCampaignByIdAction = ({
+  id,
+}: {
+  id: number;
+}): ArchiveCampaignByIdActionType =>
   ({
-    type: TOGGLE_LOGIN,
-    payload,
+    type: ARCHIVE_CAMPAIGN_BY_ID,
+    payload: id,
   } as const);

@@ -1,44 +1,44 @@
-import store from 'store2';
-import { StrictEffect, all, call, takeLatest } from 'redux-saga/effects';
-
-import { fetchUserInfo, loginUser, registerUser } from '../../api';
-import { LS_TOKEN_NAME } from '../../api/constants';
-
-import { loginUserAction, registerUserAction } from './actions';
-import { FETCH_USER_DATA, LOGIN_USER, REGISTER_USER } from './types';
-
-export function* fetchUserData(): Generator<StrictEffect> {
-  yield call(fetchUserInfo);
-}
-
-export function* login({
-  payload,
-}: ReturnType<typeof loginUserAction>): Generator<
+import {
   StrictEffect,
-  { auth_token?: string },
-  { auth_token?: string }
-> {
-  const response = yield call(loginUser, {
-    ...payload,
-  });
+  all,
+  call,
+  takeEvery,
+  takeLatest,
+} from 'redux-saga/effects';
 
-  if (response.auth_token) {
-    store.set(LS_TOKEN_NAME, response.auth_token);
-  }
+import {
+  archiveCampaignApi,
+  deleteCampaignApi,
+  fetchCampaignsListApi,
+} from '../../api';
 
-  return response;
+import { archiveCampaignByIdAction, deleteCampaignByIdAction } from './actions';
+import {
+  ARCHIVE_CAMPAIGN_BY_ID,
+  DELETE_CAMPAIGN_BY_ID,
+  FETCH_CAMPAIGNS_LIST,
+} from './types';
+
+export function* fetchCampaignsList(): Generator<StrictEffect> {
+  yield call(fetchCampaignsListApi);
 }
 
-export function* register({
-  payload,
-}: ReturnType<typeof registerUserAction>): Generator<StrictEffect> {
-  yield call(registerUser, { ...payload });
+export function* archiveCampaign({
+  payload: id,
+}: ReturnType<typeof archiveCampaignByIdAction>): Generator<StrictEffect> {
+  yield call(archiveCampaignApi, { id });
 }
 
-export default function* usersSagas(): Generator {
+export function* deleteCampaign({
+  payload: id,
+}: ReturnType<typeof deleteCampaignByIdAction>): Generator<StrictEffect> {
+  yield call(deleteCampaignApi, { id });
+}
+
+export default function* campaignsSagas(): Generator {
   yield all([
-    takeLatest(FETCH_USER_DATA, fetchUserData),
-    takeLatest(REGISTER_USER, register),
-    takeLatest(LOGIN_USER, login),
+    takeLatest(FETCH_CAMPAIGNS_LIST, fetchCampaignsList),
+    takeEvery(ARCHIVE_CAMPAIGN_BY_ID, archiveCampaign),
+    takeEvery(DELETE_CAMPAIGN_BY_ID, deleteCampaign),
   ]);
 }
