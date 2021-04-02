@@ -1,20 +1,34 @@
 import React from 'react';
 
+import { PaginationType } from '../../types/api';
+
 import './Pagination.scss';
 
 type Props = {
-  currentPage?: number;
-  itemsOnPage?: number;
-  pages: number;
-};
+  handleClick: (p: number) => void;
+} & PaginationType;
 
-const Pagination: React.FC<Props> = () => {
+const Pagination: React.FC<Props> = ({ current, pages, handleClick }) => {
   return (
     <div className="Pagination">
       <ul>
-        <li className="active">1</li>
-        <li>2</li>
-        <li>3</li>
+        {[...Array(pages)].map((o, i) => {
+          const p = i + 1;
+          return (
+            <li
+              key={p}
+              className={p === current ? 'active' : ''}
+              role="presentation"
+              onClick={() => {
+                if (p !== current) {
+                  handleClick(p);
+                }
+              }}
+            >
+              {p}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

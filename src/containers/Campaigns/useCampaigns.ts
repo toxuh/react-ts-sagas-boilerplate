@@ -1,23 +1,32 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { PaginationType } from '../../types/api';
+
 import {
   archiveCampaignByIdAction,
+  createNewCampaignAction,
   deleteCampaignByIdAction,
   fetchCampaignsListAction,
 } from '../../common/campaigns/actions';
 import {
+  campaignsListPaginationSelector,
   campaignsListSelector,
   isCampaignsFetchingSelector,
 } from '../../common/campaigns/selectors';
-import { CampaignType } from '../../common/campaigns/types';
+import {
+  CampaignType,
+  CreateNewCampaignType,
+} from '../../common/campaigns/types';
 
 type UseCampaignsReturnType = {
-  archiveById: (id: number) => void;
-  bootstrap: () => void;
-  deleteById: (id: number) => void;
+  archiveById: (id: string) => void;
+  createNewCampaign: (data: CreateNewCampaignType) => void;
+  deleteById: (id: string) => void;
+  fetchCampaignsList: (page?: number) => void;
   isLoading: boolean;
   list: undefined | CampaignType[];
+  pages: PaginationType;
 };
 
 const useCampaigns = (): UseCampaignsReturnType => {
@@ -25,26 +34,45 @@ const useCampaigns = (): UseCampaignsReturnType => {
 
   const isLoading = useSelector(isCampaignsFetchingSelector);
   const list = useSelector(campaignsListSelector);
+  const pages = useSelector(campaignsListPaginationSelector);
 
-  const bootstrap = useCallback(() => {
-    dispatch(fetchCampaignsListAction());
-  }, [dispatch]);
+  const fetchCampaignsList = useCallback(
+    (page) => {
+      dispatch(fetchCampaignsListAction(page));
+    },
+    [dispatch],
+  );
+
+  const createNewCampaign = useCallback(
+    (data) => {
+      dispatch(createNewCampaignAction(data));
+    },
+    [dispatch],
+  );
 
   const archiveById = useCallback(
-    (id: number) => {
+    (id: string) => {
       dispatch(archiveCampaignByIdAction({ id }));
     },
     [dispatch],
   );
 
   const deleteById = useCallback(
-    (id: number) => {
+    (id: string) => {
       dispatch(deleteCampaignByIdAction({ id }));
     },
     [dispatch],
   );
 
-  return { archiveById, bootstrap, deleteById, isLoading, list };
+  return {
+    archiveById,
+    createNewCampaign,
+    deleteById,
+    fetchCampaignsList,
+    isLoading,
+    list,
+    pages,
+  };
 };
 
 export default useCampaigns;

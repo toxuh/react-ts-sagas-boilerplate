@@ -1,55 +1,92 @@
-export const FETCH_CAMPAIGNS_LIST = 'FETCH_CAMPAIGNS_LIST';
-export const FETCH_CAMPAIGNS_LIST_SUCCESS = 'FETCH_CAMPAIGNS_LIST/SUCCESS';
-export const FETCH_CAMPAIGNS_LIST_ERROR = 'FETCH_CAMPAIGNS_LIST/ERROR';
+import { PaginationType } from '../../types/api';
 
-export const DELETE_CAMPAIGN_BY_ID = 'DELETE_CAMPAIGN_BY_ID';
-export const DELETE_CAMPAIGN_BY_ID_SUCCESS = 'DELETE_CAMPAIGN_BY_ID/SUCCESS';
-export const DELETE_CAMPAIGN_BY_ID_ERROR = 'DELETE_CAMPAIGN_BY_ID/ERROR';
+import * as constants from './constants';
 
-export const ARCHIVE_CAMPAIGN_BY_ID = 'ARCHIVE_CAMPAIGN_BY_ID';
-export const ARCHIVE_CAMPAIGN_BY_ID_SUCCESS = 'ARCHIVE_CAMPAIGN_BY_ID/SUCCESS';
-export const ARCHIVE_CAMPAIGN_BY_ID_ERROR = 'ARCHIVE_CAMPAIGN_BY_ID/ERROR';
+export type CampaignStatusTypes =
+  | 'new'
+  | 'archived'
+  | 'progress'
+  | 'paused'
+  | 'success';
+
+export type CampaignTypeTypes = 'views' | 'likes' | 'subscribers' | 'comments';
 
 export type CampaignType = {
-  id: number;
-  name: string;
+  id: string;
+  link: string;
   progress: number;
-  startedAt: string;
-  status: undefined | 'archived' | 'progress' | 'paused' | 'success';
+  created: string;
+  started: string;
+  duration: number;
+  status: CampaignStatusTypes;
+  type: CampaignTypeTypes;
   total: number;
+};
+
+export type CreateNewCampaignType = {
+  duration: number;
+  link: string;
+  total: number;
+  type: CampaignTypeTypes;
 };
 
 export type CampaignsState = {
   isFetching: boolean;
   list: CampaignType[] | undefined;
+  listPagination: PaginationType;
 };
 
 export type FetchCampaignsListActionType = {
-  type: typeof FETCH_CAMPAIGNS_LIST;
+  type: typeof constants.FETCH_CAMPAIGNS_LIST;
+  payload: {
+    page?: number;
+  };
 };
 
 export type FetchCampaignsListSuccessActionType = {
-  type: typeof FETCH_CAMPAIGNS_LIST_SUCCESS;
-  payload: CampaignType[];
+  type: typeof constants.FETCH_CAMPAIGNS_LIST_SUCCESS;
+  payload: { results: CampaignType[] } & PaginationType;
 };
 
 export type FetchCampaignsListErrorActionType = {
-  type: typeof FETCH_CAMPAIGNS_LIST_ERROR;
+  type: typeof constants.FETCH_CAMPAIGNS_LIST_ERROR;
+};
+
+export type FetchArchivedCampaignsListActionType = {
+  type: typeof constants.FETCH_ARCHIVED_CAMPAIGNS_LIST;
+};
+
+export type FetchArchivedCampaignsListSuccessActionType = {
+  type: typeof constants.FETCH_ARCHIVED_CAMPAIGNS_LIST_SUCCESS;
+  payload: { results: CampaignType[] } & PaginationType;
+};
+
+export type FetchArchivedCampaignsListErrorActionType = {
+  type: typeof constants.FETCH_ARCHIVED_CAMPAIGNS_LIST_ERROR;
+};
+
+export type CreateNewCampaignActionType = {
+  type: typeof constants.CREATE_NEW_CAMPAIGN;
+  payload: CreateNewCampaignType;
 };
 
 export type DeleteCampaignByIdActionType = {
-  type: typeof DELETE_CAMPAIGN_BY_ID;
-  payload: number;
+  type: typeof constants.DELETE_CAMPAIGN_BY_ID;
+  payload: string;
 };
 
 export type ArchiveCampaignByIdActionType = {
-  type: typeof ARCHIVE_CAMPAIGN_BY_ID;
-  payload: number;
+  type: typeof constants.ARCHIVE_CAMPAIGN_BY_ID;
+  payload: string;
 };
 
 export type CampaignActionTypes =
+  | FetchArchivedCampaignsListActionType
+  | FetchArchivedCampaignsListSuccessActionType
+  | FetchArchivedCampaignsListErrorActionType
   | FetchCampaignsListActionType
   | FetchCampaignsListErrorActionType
   | FetchCampaignsListSuccessActionType
   | DeleteCampaignByIdActionType
-  | ArchiveCampaignByIdActionType;
+  | ArchiveCampaignByIdActionType
+  | CreateNewCampaignActionType;

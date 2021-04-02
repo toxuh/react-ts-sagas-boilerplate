@@ -4,15 +4,17 @@ import { useFormik } from 'formik';
 
 import { Button } from '../../../components';
 
+import { CreateNewCampaignType } from '../../../common/campaigns/types';
+
 import messages from './messages';
 
 import './NewCampaign.scss';
 
 type Props = {
   handleCloseModal: () => void;
-  handleSubmitForm: (data: Record<string, unknown>) => void;
+  handleSubmitForm: (data: CreateNewCampaignType) => void;
   initialValues?: {
-    count: number;
+    total: number;
     link: string;
     duration: number;
     type: 'views' | 'likes' | 'subscribers' | 'comments';
@@ -23,7 +25,7 @@ const NewCampaign: React.FC<Props> = ({
   handleCloseModal,
   handleSubmitForm,
   initialValues = {
-    count: 0,
+    total: 0,
     link: '',
     duration: 0,
     type: 'views',
@@ -98,9 +100,9 @@ const NewCampaign: React.FC<Props> = ({
             {intl.formatMessage(messages.count)}:
             <input
               type="number"
-              id="count"
-              name="count"
-              value={values.count}
+              id="total"
+              name="total"
+              value={values.total}
               onChange={handleChange}
             />
           </label>

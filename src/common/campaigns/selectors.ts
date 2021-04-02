@@ -16,3 +16,8 @@ export const campaignsListSelector = createSelector(
   campaignsSelector,
   (campaigns) => campaigns.list,
 );
+
+export const campaignsListPaginationSelector = createSelector(
+  campaignsSelector,
+  (campaigns) => campaigns.listPagination,
+);

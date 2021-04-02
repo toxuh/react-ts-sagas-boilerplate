@@ -6,7 +6,7 @@ import './StatusIcon.scss';
 
 /* -light types are not implemented */
 type Props = {
-  name?: 'success' | 'progress' | 'paused' | 'archived';
+  name?: 'new' | 'success' | 'progress' | 'paused' | 'archived';
   size?: 'small' | 'default' | 'big';
   type?:
     | 'square'
@@ -26,6 +26,9 @@ const StatusIcon: React.FC<Props> = ({
   let icon: React.ReactNode;
 
   switch (name) {
+    case 'new':
+      icon = <FaCircle />;
+      break;
     case 'success':
       icon = <FaCheck />;
       break;

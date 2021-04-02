@@ -1,17 +1,21 @@
+import { DEFAULT_PAGE_SIZE } from '../../api/constants';
+
 import {
-  CampaignActionTypes,
-  CampaignType,
-  CampaignsState,
   FETCH_CAMPAIGNS_LIST,
   FETCH_CAMPAIGNS_LIST_ERROR,
   FETCH_CAMPAIGNS_LIST_SUCCESS,
-} from './types';
-
-import mock from './mock';
+} from './constants';
+import { CampaignActionTypes, CampaignsState } from './types';
 
 export const initialState: CampaignsState = {
   isFetching: false,
-  list: mock as CampaignType[],
+  list: undefined,
+  listPagination: {
+    count: 0,
+    current: 1,
+    limit: DEFAULT_PAGE_SIZE,
+    pages: 0,
+  },
 };
 
 export default (
@@ -35,7 +39,13 @@ export default (
       return {
         ...state,
         isFetching: false,
-        list: action.payload,
+        list: action.payload.results,
+        listPagination: {
+          count: action.payload.count,
+          current: action.payload.current,
+          limit: action.payload.limit,
+          pages: action.payload.pages,
+        },
       };
 
     default:

@@ -6,12 +6,11 @@ import axiosRequest from './axiosRequest';
 function* handleRequest(
   action: string,
   config: AxiosRequestConfig,
-): Generator<StrictEffect, null, null> {
+): Generator<StrictEffect, { error: string }, { error: string }> {
   try {
-    const response: ReturnType<typeof axiosRequest> | null = yield call(
-      axiosRequest,
-      config,
-    );
+    const response:
+      | ReturnType<typeof axiosRequest>
+      | { error: string } = yield call(axiosRequest, config);
 
     yield put({ type: `${action}/SUCCESS`, payload: response });
 
@@ -23,7 +22,7 @@ function* handleRequest(
     });
   }
 
-  return null;
+  return { error: 'Error' };
 }
 
 export default handleRequest;

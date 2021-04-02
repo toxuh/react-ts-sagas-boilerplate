@@ -15,11 +15,21 @@ import './Campaigns.scss';
 
 const Campaigns: React.FC = () => {
   const intl = useIntl();
-  const { archiveById, bootstrap, deleteById, list = [] } = useCampaigns();
+  const {
+    archiveById,
+    createNewCampaign,
+    deleteById,
+    fetchCampaignsList,
+    isLoading,
+    list,
+    pages,
+  } = useCampaigns();
 
   useEffect(() => {
-    bootstrap();
-  }, []);
+    if (typeof list === 'undefined') {
+      fetchCampaignsList();
+    }
+  }, [list]);
 
   const [createNewModalOpened, toggleCreateModal] = useState(false);
 
@@ -28,10 +38,12 @@ const Campaigns: React.FC = () => {
       buttonText={intl.formatMessage(messages.createNew)}
       className="Campaigns"
       caption={intl.formatMessage(messages.caption)}
+      isLoading={isLoading}
+      loadingText={intl.formatMessage(messages.loading)}
       title={intl.formatMessage(messages.title)}
       onButtonClick={() => toggleCreateModal(true)}
     >
-      {list.length ? (
+      {list?.length ? (
         <>
           <ul className="List">
             {list.map((campaign) => (
@@ -40,12 +52,17 @@ const Campaigns: React.FC = () => {
                   <StatusIcon name={campaign.status} />
                 </div>
                 <div className="Heading">
-                  <h5>{campaign.name}</h5>
+                  <h5>{campaign.link}</h5>
                   <p>
-                    {intl.formatMessage(messages.started)}:{' '}
-                    {moment(campaign.startedAt).format('DD.MM.YYYY HH:mm:ss')}
+                    {intl.formatMessage(messages.created)}:{' '}
+                    {moment(campaign.created).format('DD.MM.YYYY HH:mm:ss')}
                   </p>
                 </div>
+                {campaign.type && (
+                  <div className="Type">
+                    {intl.formatMessage(messages[campaign.type])}
+                  </div>
+                )}
                 <div className="Progress">
                   {campaign.progress} / {campaign.total}
                 </div>
@@ -63,23 +80,34 @@ const Campaigns: React.FC = () => {
               </li>
             ))}
           </ul>
-          <Pagination pages={3} />
-          <Modal
-            isOpened={createNewModalOpened}
-            onClose={() => toggleCreateModal(false)}
-          >
-            <div>
-              <h4>{intl.formatMessage(messages.newCampaign)}</h4>
-              <NewCampaign
-                handleCloseModal={() => toggleCreateModal(false)}
-                handleSubmitForm={(data) => console.log(data)}
-              />
-            </div>
-          </Modal>
+          {pages.pages > 1 && (
+            <Pagination
+              count={pages.count}
+              current={pages.current}
+              limit={pages.limit}
+              pages={pages.pages}
+              handleClick={(p) => fetchCampaignsList(p)}
+            />
+          )}
         </>
       ) : (
-        <p>No items</p>
+        <div className="NoItems">{intl.formatMessage(messages.noItems)}.</div>
       )}
+      <Modal
+        isOpened={createNewModalOpened}
+        onClose={() => toggleCreateModal(false)}
+      >
+        <div>
+          <h4>{intl.formatMessage(messages.newCampaign)}</h4>
+          <NewCampaign
+            handleCloseModal={() => toggleCreateModal(false)}
+            handleSubmitForm={(data) => {
+              createNewCampaign(data);
+              toggleCreateModal(false);
+            }}
+          />
+        </div>
+      </Modal>
     </Section>
   );
 };
