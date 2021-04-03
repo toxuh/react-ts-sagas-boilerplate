@@ -1,20 +1,9 @@
-import {
-  archiveCampaignApi,
-  createCampaignApi,
-  deleteCampaignApi,
-  fetchArchivedCampaignsListApi,
-  fetchCampaignsListApi,
-} from './campaigns';
-import { fetchUserInfo, loginUser, registerUser } from './users';
+import * as campaignsApi from './campaigns';
+import * as userApi from './users';
+import * as videoApi from './video';
 
-/* eslint-disable-next-line */
-export {
-  archiveCampaignApi,
-  createCampaignApi,
-  deleteCampaignApi,
-  fetchArchivedCampaignsListApi,
-  fetchCampaignsListApi,
-  fetchUserInfo,
-  loginUser,
-  registerUser,
+export default {
+  ...campaignsApi,
+  ...userApi,
+  ...videoApi,
 };

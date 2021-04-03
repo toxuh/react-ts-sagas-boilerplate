@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import moment from 'moment';
 import { FaArchive, FaTrashAlt } from 'react-icons/fa';
 
-import { Modal, Pagination, Section, StatusIcon } from '../../components';
+import { Modal, Pagination, Section } from '../../components';
 
 import NewCampaign from '../Forms/NewCampaign/NewCampaign';
 
@@ -48,11 +48,11 @@ const Campaigns: React.FC = () => {
           <ul className="List">
             {list.map((campaign) => (
               <li key={campaign.id}>
-                <div className="Status">
-                  <StatusIcon name={campaign.status} />
+                <div className="Thumbnail">
+                  <img src={campaign.thumbnail} alt={campaign.title} />
                 </div>
                 <div className="Heading">
-                  <h5>{campaign.link}</h5>
+                  <h5 dangerouslySetInnerHTML={{ __html: campaign.title }} />
                   <p>
                     {intl.formatMessage(messages.created)}:{' '}
                     {moment(campaign.created).format('DD.MM.YYYY HH:mm:ss')}

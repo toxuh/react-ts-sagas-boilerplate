@@ -1,11 +1,6 @@
 import { StrictEffect, all, call, takeLatest } from 'redux-saga/effects';
 
-import {
-  archiveCampaignApi,
-  createCampaignApi,
-  deleteCampaignApi,
-  fetchCampaignsListApi,
-} from '../../api';
+import api from '../../api';
 
 import {
   archiveCampaignByIdAction,
@@ -24,7 +19,7 @@ import { CampaignType } from './types';
 export function* fetchCampaignsList({
   payload,
 }: ReturnType<typeof fetchCampaignsListAction>): Generator<StrictEffect> {
-  yield call(fetchCampaignsListApi, { ...payload });
+  yield call(api.fetchCampaignsListApi, { ...payload });
 }
 
 export function* createNewCampaign({
@@ -34,10 +29,10 @@ export function* createNewCampaign({
   CampaignType,
   CampaignType
 > {
-  const response = yield call(createCampaignApi, { ...data });
+  const response = yield call(api.createCampaignApi, { ...data });
 
-  if (response.link) {
-    yield call(fetchCampaignsListApi);
+  if (response.title) {
+    yield call(api.fetchCampaignsListApi);
   }
 
   return response;
@@ -46,19 +41,19 @@ export function* createNewCampaign({
 export function* archiveCampaign({
   payload: id,
 }: ReturnType<typeof archiveCampaignByIdAction>): Generator<StrictEffect> {
-  yield call(archiveCampaignApi, { id });
+  yield call(api.archiveCampaignApi, { id });
 }
 
 export function* deleteCampaign({
   payload: id,
 }: ReturnType<typeof deleteCampaignByIdAction>): Generator {
-  const response = yield call(deleteCampaignApi, { id });
+  const response = yield call(api.deleteCampaignApi, { id });
 
   if (response) {
     return;
   }
 
-  yield call(fetchCampaignsListApi);
+  yield call(api.fetchCampaignsListApi);
 }
 
 export default function* campaignsSagas(): Generator {

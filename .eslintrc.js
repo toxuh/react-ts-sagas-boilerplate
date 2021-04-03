@@ -51,6 +51,7 @@ module.exports = {
         noSortAlphabetically: true,
       },
     ],
+    'react/no-danger': 0,
 
     'jest/no-hooks': 'off',
 

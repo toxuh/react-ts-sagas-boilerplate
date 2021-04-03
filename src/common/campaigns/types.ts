@@ -12,20 +12,27 @@ export type CampaignStatusTypes =
 export type CampaignTypeTypes = 'views' | 'likes' | 'subscribers' | 'comments';
 
 export type CampaignType = {
-  id: string;
-  link: string;
-  progress: number;
+  archived: boolean;
   created: string;
-  started: string;
-  duration: number;
+  id: string;
+  progress: number;
+  started: null | string;
   status: CampaignStatusTypes;
-  type: CampaignTypeTypes;
+  thumbnail: string;
+  title: string;
   total: number;
+  type: CampaignTypeTypes;
 };
 
 export type CreateNewCampaignType = {
+  channel_id: string;
+  channel_title: string;
+  description: string;
   duration: number;
   link: string;
+  video_publish_date: string;
+  thumbnail: string;
+  title: string;
   total: number;
   type: CampaignTypeTypes;
 };

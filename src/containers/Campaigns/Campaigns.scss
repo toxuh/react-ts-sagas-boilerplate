@@ -15,6 +15,7 @@
 
       .Heading {
         overflow: hidden;
+        padding-top: 0.2em;
         width: 50%;
 
         h5 {
@@ -26,6 +27,16 @@
           color: #9da2a7;
           font-size: 0.9em;
           margin-bottom: 0;
+        }
+      }
+
+      .Thumbnail {
+        height: 3em;
+        padding-right: 1em;
+
+        img {
+          height: 100%;
+          width: auto;
         }
       }
 

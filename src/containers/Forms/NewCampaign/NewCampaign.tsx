@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { useFormik } from 'formik';
 
@@ -6,6 +6,7 @@ import { Button } from '../../../components';
 
 import { CreateNewCampaignType } from '../../../common/campaigns/types';
 
+import useForm from './useForm';
 import messages from './messages';
 
 import './NewCampaign.scss';
@@ -13,27 +14,35 @@ import './NewCampaign.scss';
 type Props = {
   handleCloseModal: () => void;
   handleSubmitForm: (data: CreateNewCampaignType) => void;
-  initialValues?: {
-    total: number;
-    link: string;
-    duration: number;
-    type: 'views' | 'likes' | 'subscribers' | 'comments';
-  };
+  initialValues?: CreateNewCampaignType;
 };
 
 const NewCampaign: React.FC<Props> = ({
   handleCloseModal,
   handleSubmitForm,
   initialValues = {
-    total: 0,
-    link: '',
+    channel_id: '',
+    channel_title: '',
+    description: '',
     duration: 0,
+    link: '',
+    video_publish_date: '',
+    thumbnail: '',
+    title: '',
+    total: 0,
     type: 'views',
   },
 }) => {
   const intl = useIntl();
+  const { data, fetchVideoInfo } = useForm();
 
-  const { values, handleChange, handleReset, handleSubmit } = useFormik({
+  const {
+    values,
+    handleChange,
+    handleReset,
+    handleSubmit,
+    setValues,
+  } = useFormik({
     initialValues,
     onSubmit: handleSubmitForm,
   });
@@ -41,6 +50,25 @@ const NewCampaign: React.FC<Props> = ({
   const onCancel = () => {
     handleReset(initialValues);
     handleCloseModal();
+  };
+
+  useEffect(() => {
+    if (data) {
+      setValues({
+        ...values,
+        channel_id: data.channelId,
+        channel_title: data.channelTitle,
+        description: data.description,
+        video_publish_date: data.publishedAt,
+        thumbnail: data.thumbnails.default.url,
+        title: data.title,
+      });
+    }
+  }, [data]);
+
+  const onVideoLinkChange = (e: { target: { value: string } }) => {
+    handleChange(e);
+    fetchVideoInfo(e.target.value);
   };
 
   return (
@@ -79,7 +107,7 @@ const NewCampaign: React.FC<Props> = ({
               name="link"
               placeholder="https://www.youtube.com/watch?v=xxxxxxx"
               value={values.link}
-              onChange={handleChange}
+              onChange={onVideoLinkChange}
             />
           </label>
         </div>
@@ -117,6 +145,12 @@ const NewCampaign: React.FC<Props> = ({
         </div>
       </form>
       <div>
+        {data && (
+          <div className="Preview">
+            <img src={data.thumbnails.high.url} alt={data.title} />
+            <h4 dangerouslySetInnerHTML={{ __html: data.title }} />
+          </div>
+        )}
         <h5>
           {intl.formatMessage(messages.cost)}: <span>3500</span>
         </h5>

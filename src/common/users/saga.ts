@@ -1,14 +1,14 @@
 import store from 'store2';
 import { StrictEffect, all, call, takeLatest } from 'redux-saga/effects';
 
-import { fetchUserInfo, loginUser, registerUser } from '../../api';
+import api from '../../api';
 import { LS_TOKEN_NAME } from '../../api/constants';
 
 import { loginUserAction, registerUserAction } from './actions';
 import { FETCH_USER_DATA, LOGIN_USER, REGISTER_USER } from './types';
 
 export function* fetchUserData(): Generator<StrictEffect> {
-  yield call(fetchUserInfo);
+  yield call(api.fetchUserInfo);
 }
 
 export function* login({
@@ -18,7 +18,7 @@ export function* login({
   { auth_token?: string },
   { auth_token?: string }
 > {
-  const response = yield call(loginUser, {
+  const response = yield call(api.loginUser, {
     ...payload,
   });
 
@@ -32,7 +32,7 @@ export function* login({
 export function* register({
   payload,
 }: ReturnType<typeof registerUserAction>): Generator<StrictEffect> {
-  yield call(registerUser, { ...payload });
+  yield call(api.registerUser, { ...payload });
 }
 
 export default function* usersSagas(): Generator {
