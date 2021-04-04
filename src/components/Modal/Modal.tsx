@@ -22,7 +22,7 @@ const Modal: React.FC<Props> = ({ children, isOpened, onClose }) => {
   };
 
   return (
-    <div className={classes} role="presentation" onClick={handleClose}>
+    <div className={classes} role="presentation" onMouseDown={handleClose}>
       <div>
         <FaTimes className="CloseIcon" role="presentation" onClick={onClose} />
         {children}

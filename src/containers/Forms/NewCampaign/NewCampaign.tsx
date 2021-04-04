@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useFormik } from 'formik';
 
@@ -35,16 +35,22 @@ const NewCampaign: React.FC<Props> = ({
 }) => {
   const intl = useIntl();
   const { data, fetchVideoInfo } = useForm();
+  const [videoData, setVideoData] = useState(data);
 
   const {
     values,
     handleChange,
     handleReset,
     handleSubmit,
+    resetForm,
     setValues,
   } = useFormik({
     initialValues,
-    onSubmit: handleSubmitForm,
+    onSubmit: (d) => {
+      handleSubmitForm(d);
+      resetForm();
+      setVideoData(undefined);
+    },
   });
 
   const onCancel = () => {
@@ -54,17 +60,23 @@ const NewCampaign: React.FC<Props> = ({
 
   useEffect(() => {
     if (data) {
-      setValues({
-        ...values,
-        channel_id: data.channelId,
-        channel_title: data.channelTitle,
-        description: data.description,
-        video_publish_date: data.publishedAt,
-        thumbnail: data.thumbnails.default.url,
-        title: data.title,
-      });
+      setVideoData(data);
     }
   }, [data]);
+
+  useEffect(() => {
+    if (videoData) {
+      setValues({
+        ...values,
+        channel_id: videoData.channelId,
+        channel_title: videoData.channelTitle,
+        description: videoData.description,
+        video_publish_date: videoData.publishedAt,
+        thumbnail: videoData.thumbnails.default.url,
+        title: videoData.title,
+      });
+    }
+  }, [videoData]);
 
   const onVideoLinkChange = (e: { target: { value: string } }) => {
     handleChange(e);
@@ -145,10 +157,10 @@ const NewCampaign: React.FC<Props> = ({
         </div>
       </form>
       <div>
-        {data && (
+        {videoData && (
           <div className="Preview">
-            <img src={data.thumbnails.high.url} alt={data.title} />
-            <h4 dangerouslySetInnerHTML={{ __html: data.title }} />
+            <img src={videoData.thumbnails.high.url} alt={videoData.title} />
+            <h4 dangerouslySetInnerHTML={{ __html: videoData.title }} />
           </div>
         )}
         <h5>

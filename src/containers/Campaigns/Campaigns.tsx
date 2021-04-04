@@ -52,7 +52,10 @@ const Campaigns: React.FC = () => {
                   <img src={campaign.thumbnail} alt={campaign.title} />
                 </div>
                 <div className="Heading">
-                  <h5 dangerouslySetInnerHTML={{ __html: campaign.title }} />
+                  <h5
+                    dangerouslySetInnerHTML={{ __html: campaign.title }}
+                    title={campaign.title}
+                  />
                   <p>
                     {intl.formatMessage(messages.created)}:{' '}
                     {moment(campaign.created).format('DD.MM.YYYY HH:mm:ss')}

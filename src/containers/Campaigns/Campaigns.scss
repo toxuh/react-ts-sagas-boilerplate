@@ -19,8 +19,13 @@
         width: 50%;
 
         h5 {
+          cursor: default;
           font-size: 1em;
           margin-bottom: 0.2em;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 90%;
         }
 
         p {
