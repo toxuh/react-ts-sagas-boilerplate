@@ -1,0 +1,24 @@
+.Exchange {
+  .Main {
+    padding-right: 1em;
+    width: 70%;
+
+    .Actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      h4 {
+        margin-bottom: 0.8em;
+        width: 100%;
+      }
+
+      .Description {
+        color: #9da2a7;
+        height: 2.5em;
+        line-height: 1.4em;
+        margin: 2em 0 1.5em;
+      }
+    }
+  }
+}
