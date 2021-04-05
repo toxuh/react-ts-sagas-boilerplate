@@ -2,6 +2,8 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { FaSync } from 'react-icons/fa';
 
+import Button from '../Button/Button';
+
 import messages from './messages';
 
 import './Section.scss';
@@ -35,9 +37,14 @@ const Section: React.FC<Props> = ({
         <h1>
           {title}
           {buttonText && (
-            <button type="button" onClick={onButtonClick}>
+            <Button
+              htmlType="button"
+              size="small"
+              type="success"
+              onClick={onButtonClick}
+            >
               {buttonText}
-            </button>
+            </Button>
           )}
         </h1>
       )}

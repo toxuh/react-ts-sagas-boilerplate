@@ -1,5 +1,7 @@
+@import "src/theme/colors";
+
 .Button {
-  background-color: #eeeff6;
+  background-color: $button-background-default;
   border-radius: 2em;
   border: 0;
   cursor: pointer;
@@ -7,20 +9,36 @@
   height: 3.5em;
   padding: 0 2em;
 
+  &.small {
+    border-radius: 0.5em;
+    height: 2.2em;
+    padding: 0 1.1em;
+  }
+
   &:focus {
+    border: 0;
     outline: 0;
   }
 
   &:hover {
-    background-color: #d2d3e7;
+    background-color: $button-background-hover-default;
   }
 
   &.primary {
-    background-color: #216fed;
-    color: #fff;
+    background-color: $button-background-primary;
+    color: $button-font-color-light;
 
     &:hover {
-      background-color: #2363cb;
+      background-color: $button-background-hover-primary;
+    }
+  }
+
+  &.success {
+    background-color: $button-background-success;
+    color: $button-font-color-light;
+
+    &:hover {
+      background-color: $button-background-hover-success;
     }
   }
 }

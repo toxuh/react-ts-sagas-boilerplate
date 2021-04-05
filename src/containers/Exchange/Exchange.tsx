@@ -1,9 +1,11 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import {
+  FaBullhorn,
   FaHeart,
   FaRegComment,
   FaRegPlayCircle,
+  FaUserPlus,
   FaUsers,
 } from 'react-icons/fa';
 
@@ -17,36 +19,54 @@ const Exchange: React.FC = () => {
 
   const mainItems = [
     {
-      title: 'Views',
-      description: 'View other users videos and earn Credits',
+      title: intl.formatMessage(messages.views),
+      description: intl.formatMessage(messages.viewsDescription),
       icon: <FaRegPlayCircle />,
       cph: [120],
       link: 'exchange/views',
-      measurement: 'view hour',
+      measurement: intl.formatMessage(messages.viewsMeasurement),
     },
     {
-      title: 'Subscribers',
-      description: 'Subscribe to other users channels and earn Credits',
-      icon: <FaUsers />,
+      title: intl.formatMessage(messages.subscribers),
+      description: intl.formatMessage(messages.subscribersDescription),
+      icon: <FaUserPlus />,
       cph: [120],
       link: 'exchange/subscribers',
-      measurement: 'subscription',
+      measurement: intl.formatMessage(messages.subscribersMeasurement),
     },
     {
-      title: 'Likes',
-      description: 'Like other users videos and earn Credits',
+      title: intl.formatMessage(messages.likes),
+      description: intl.formatMessage(messages.likesDescription),
       icon: <FaHeart />,
       cph: [60],
       link: 'exchange/likes',
-      measurement: 'like',
+      measurement: intl.formatMessage(messages.likesMeasurement),
     },
     {
-      title: 'Comments',
-      description: 'Comment on other users videos and earn Credits',
+      title: intl.formatMessage(messages.comments),
+      description: intl.formatMessage(messages.commentsDescription),
       icon: <FaRegComment />,
       cph: [60],
       link: 'exchange/comments',
-      measurement: 'comment',
+      measurement: intl.formatMessage(messages.commentsMeasurement),
+    },
+  ];
+  const additionalItems = [
+    {
+      title: intl.formatMessage(messages.referrals),
+      description: intl.formatMessage(messages.referralsDescription),
+      icon: <FaUsers />,
+      cph: [1000],
+      link: 'referrals',
+      measurement: intl.formatMessage(messages.referralsMeasurement),
+    },
+    {
+      title: intl.formatMessage(messages.promotions),
+      description: intl.formatMessage(messages.promotionsDescription),
+      icon: <FaBullhorn />,
+      cph: [100, 2500],
+      link: 'promotions',
+      measurement: intl.formatMessage(messages.promotionsMeasurement),
     },
   ];
 
@@ -57,31 +77,82 @@ const Exchange: React.FC = () => {
       title={intl.formatMessage(messages.title)}
     >
       <div className="Main">
-        <div className="Actions">
-          <h4>Common</h4>
+        <div className="Holder">
+          <h4>{intl.formatMessage(messages.common)}</h4>
           {mainItems.map((item) => (
             <Card
               icon={item.icon}
               title={item.title}
               link={{
                 href: item.link,
-                title: `Get ${item.title.toLowerCase()}`,
+                title: `${intl.formatMessage(
+                  messages.get,
+                )} ${item.title.toLowerCase()}`,
               }}
               w={48}
             >
               <div className="Description">{item.description}</div>
               <div className="Cph">
-                {item.cph.join('–')} credits/{item.measurement}
+                {item.cph.join('–')} {intl.formatMessage(messages.credits)}/
+                {item.measurement}
               </div>
             </Card>
           ))}
         </div>
-        <div className="Additional">
-          <h4>Additional</h4>
+        <div className="Holder">
+          <h4>{intl.formatMessage(messages.additional)}</h4>
+          {additionalItems.map((item) => (
+            <Card
+              icon={item.icon}
+              title={item.title}
+              link={{
+                href: item.link,
+                title: intl.formatMessage(messages.doIt),
+              }}
+              w={48}
+            >
+              <div className="Description">{item.description}</div>
+              <div className="Cph">
+                {item.cph.join('–')} {intl.formatMessage(messages.credits)}/
+                {item.measurement}
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
       <div className="Stats">
-        <h4>Your statistics:</h4>
+        <h4>{intl.formatMessage(messages.statistics)}</h4>
+        <article>
+          <div className="Property">
+            <div className="Title">
+              {intl.formatMessage(messages.exchanges)}
+            </div>
+            <div className="Description">
+              {intl.formatMessage(messages.lastSevenDays)}
+            </div>
+          </div>
+          <div className="Value">0</div>
+        </article>
+        <article>
+          <div className="Property">
+            <div className="Title">
+              {intl.formatMessage(messages.referrals)}
+            </div>
+            <div className="Description">
+              {intl.formatMessage(messages.lastTwentyDays)}
+            </div>
+          </div>
+          <div className="Value">0</div>
+        </article>
+        <article>
+          <div className="Property">
+            <div className="Title">{intl.formatMessage(messages.sessions)}</div>
+            <div className="Description">
+              {intl.formatMessage(messages.sessionsDescription)}
+            </div>
+          </div>
+          <div className="Value">0/3</div>
+        </article>
       </div>
     </Section>
   );

@@ -1,3 +1,5 @@
+@import "src/theme/colors";
+
 .Pagination {
   margin-top: 2em;
 
@@ -16,12 +18,12 @@
       width: 2em;
 
       &:hover {
-        background-color: #d2d3e7;
+        background-color: $background-dark;
       }
 
       &.active {
-        background-color: #9da2a7;
-        color: #f4f3f9;
+        background-color: $background-darken;
+        color: $color-light;
         cursor: default;
       }
     }
