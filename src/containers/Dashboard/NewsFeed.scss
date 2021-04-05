@@ -1,3 +1,5 @@
+@import "src/theme/colors";
+
 .NewsFeed {
   article {
     margin-bottom: 1.5em;
@@ -13,7 +15,7 @@
     }
 
     .Date {
-      color: #9da2a7;
+      color: $blue-grey-darken;
       font-size: 0.8em;
     }
   }

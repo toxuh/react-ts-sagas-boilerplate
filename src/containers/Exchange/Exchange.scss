@@ -1,3 +1,5 @@
+@import "src/theme/colors";
+
 .Exchange {
   .Main {
     padding-right: 1em;
@@ -14,7 +16,7 @@
       }
 
       .Description {
-        color: #9da2a7;
+        color: $blue-grey-darken;
         height: 2.5em;
         line-height: 1.4em;
         margin: 2em 0 1.5em;
@@ -39,7 +41,7 @@
           width: 75%;
 
           .Description {
-            color: #aaa;
+            color: $blue-grey-darken;
             font-size: 0.8em;
           }
         }

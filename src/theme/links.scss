@@ -1,3 +1,4 @@
+@import "colors";
 @import "variables";
 
 a {
@@ -7,7 +8,7 @@ a {
   };
 
   &:hover {
-    color: $blue-hover;
+    color: darken($blue, $hover-darken);
     text-decoration: none;
   }
 }

@@ -1,15 +1,15 @@
 @import "src/theme/colors";
 
 .ProgressBar {
-  background-color: $background-dark;
+  background-color: $blue-grey-darker;
   border-radius: 0.5em;
   height: 2em;
   overflow: hidden;
   width: 100%;
 
   > div {
-    background-color: $button-background-primary;
-    color: $color-light;
+    background-color: $blue;
+    color: $whitest;
     height: 100%;
     line-height: 2em;
     text-align: center;
@@ -17,7 +17,7 @@
 
   &.finished {
     > div {
-      background-color: $button-background-success;
+      background-color: $green;
     }
   }
 }

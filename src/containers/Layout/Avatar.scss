@@ -1,3 +1,5 @@
+@import "src/theme/colors";
+
 .Avatar {
   display: flex;
   margin-bottom: 2.5em;
@@ -11,7 +13,7 @@
     margin: 0 1.4em 0 0.8em;
 
     .Name {
-      color: #46494e;
+      color: $dark-grey;
       display: block;
       font-weight: 500;
       margin: 0.2em 0 0;
@@ -19,16 +21,16 @@
     }
 
     .Mail {
-      color: #adacb1;
+      color: $basic-grey;
       font-size: 0.8em;
     }
   }
 
   .Settings {
-    background-color: #dfe0f1;
+    background-color: $blue-grey-darker;
     border: 0;
     border-radius: 50%;
-    color: #9e9eb6;
+    color: $blue-grey-darken;
     cursor: pointer;
     height: 2.7em;
     line-height: 3.05em;
@@ -37,7 +39,7 @@
     width: 2.7em;
 
     &:hover {
-      background-color: #d2d3e7;
+      background-color: $basic-grey;
     }
   }
 }

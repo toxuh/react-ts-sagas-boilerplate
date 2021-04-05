@@ -1,3 +1,5 @@
+@import "src/theme/colors";
+
 .Campaigns {
   display: block !important;
 
@@ -29,7 +31,7 @@
         }
 
         p {
-          color: #9da2a7;
+          color: $blue-grey-darken;
           font-size: 0.9em;
           margin-bottom: 0;
         }
@@ -59,7 +61,7 @@
         display: flex;
 
         button {
-          background-color: #fff;
+          background-color: $white;
           border: 0;
           border-radius: 50%;
           cursor: pointer;
@@ -71,7 +73,7 @@
           width: 2.5em;
 
           &:hover {
-            background-color: #dfe0f1;
+            background-color: $blue-grey;
           }
 
           &:focus {

@@ -1,3 +1,5 @@
+@import "src/theme/colors";
+
 .Dashboard {
   display: flex;
   flex-wrap: wrap;
@@ -5,7 +7,7 @@
   width: 100%;
 
   .BigText {
-    color: #46474b;
+    color: $dark-grey;
     display: block;
     font-size: 2.2em;
     font-weight: 500;
@@ -31,7 +33,7 @@
       width: 49%;
 
       > h5 {
-        color: #9da2a7;
+        color: $blue-grey-darken;
         font-size: 1em;
         font-weight: 500;
         margin-bottom: 0.6em;

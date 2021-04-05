@@ -1,6 +1,9 @@
+@import "src/theme/colors";
+@import "src/theme/variables";
+
 .StatusIcon {
-  background-color: #dfe0f0;
-  color: #b4b8bc;
+  background-color: $blue-grey-darker;
+  color: $blue-grey-darken;
   text-align: center;
 
   &.small {
@@ -23,23 +26,23 @@
   }
 
   &.success {
-    background-color: #d7efe7;
-    color: #21b17c;
+    background-color: lighten($green, $badge-text-lighten);
+    color: $green;
   }
 
   &.progress {
-    background-color: #d2eaf7;
-    color: #36a6e3;
+    background-color: lighten($light-blue, $badge-text-lighten);
+    color: $light-blue;
   }
 
   &.paused {
-    background-color: #fff5d7;
-    color: #fd840b;
+    background-color: lighten($orange, $badge-text-lighten);
+    color: $orange;
   }
 
   &.archived {
-    background-color: #e9ebec;
-    color: #9da2a7;
+    background-color: lighten($blue-grey-darken, $badge-text-lighten);
+    color: $blue-grey-darken;
   }
 
   &.square {

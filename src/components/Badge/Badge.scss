@@ -1,6 +1,8 @@
+@import "src/theme/colors";
+
 .Badge {
   border-radius: 0.8em;
-  color: #fff;
+  color: $white;
   height: 2.1em;
   line-height: 2.4em;
   margin-right: 0.8em;

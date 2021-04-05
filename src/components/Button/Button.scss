@@ -1,7 +1,8 @@
 @import "src/theme/colors";
+@import "src/theme/variables";
 
 .Button {
-  background-color: $button-background-default;
+  background-color: $light-grey;
   border-radius: 2em;
   border: 0;
   cursor: pointer;
@@ -21,24 +22,51 @@
   }
 
   &:hover {
-    background-color: $button-background-hover-default;
+    background-color: darken($light-grey, $hover-darken);
   }
 
   &.primary {
-    background-color: $button-background-primary;
-    color: $button-font-color-light;
+    background-color: $blue;
+    color: $white;
 
     &:hover {
-      background-color: $button-background-hover-primary;
+      background-color: darken($blue, $hover-darken);
     }
   }
 
   &.success {
-    background-color: $button-background-success;
-    color: $button-font-color-light;
+    background-color: $green;
+    color: $white;
 
     &:hover {
-      background-color: $button-background-hover-success;
+      background-color: darken($green, $hover-darken);
+    }
+  }
+
+  &.warning {
+    background-color: $orange;
+    color: $white;
+
+    &:hover {
+      background-color: darken($orange, $hover-darken);
+    }
+  }
+
+  &.error {
+    background-color: $pink;
+    color: $white;
+
+    &:hover {
+      background-color: darken($pink, $hover-darken);
+    }
+  }
+
+  &.info {
+    background-color: $light-blue;
+    color: $white;
+
+    &:hover {
+      background-color: darken($light-blue, $hover-darken);
     }
   }
 }

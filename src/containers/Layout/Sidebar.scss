@@ -1,12 +1,14 @@
+@import "src/theme/colors";
+
 .Sidebar {
-  background-color: #f4f3f9;
+  background-color: $whitest;
   display: flex;
   flex-direction: column;
   padding: 2em;
   width: 22em;
 
   h4 {
-    color: #a6a5ab;
+    color: $basic-grey;
     font-size: 1em;
     font-weight: 500;
   }
@@ -21,7 +23,7 @@
         position: relative;
 
         & > a {
-          color: #68676d;
+          color: $light-dark-grey;
           display: flex;
           font-size: 1em;
           font-weight: 500;
@@ -31,7 +33,7 @@
           z-index: 1;
 
           &:hover {
-            color: #333;
+            color: $dark-grey;
           }
         }
 

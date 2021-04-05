@@ -1,4 +1,4 @@
-@import "src/theme/variables";
+@import "src/theme/colors";
 
 @keyframes rotating {
   from{
@@ -13,7 +13,7 @@
   padding: 2em;
 
   h1 {
-    color: #46494e;
+    color: $dark-grey;
 
     button {
       margin-left: 1em;
@@ -24,7 +24,7 @@
   }
 
   .Caption {
-    color: #9da2a7;
+    color: $blue-grey-darken;
     font-size: 0.9em;
     margin-top: 0.3em;
   }
@@ -43,14 +43,14 @@
 
     svg {
       animation: rotating 2s linear infinite;
-      color: $light-grey;
+      color: $blue-grey;
       height: 2.2em;
       margin-bottom: 15px;
       width: 2.2em;
     }
 
     span {
-      color: $light-grey;
+      color: $blue-grey;
       font-size: 1.4em;
       font-weight: 500;
     }

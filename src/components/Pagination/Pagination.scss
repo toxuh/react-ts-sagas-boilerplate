@@ -18,12 +18,12 @@
       width: 2em;
 
       &:hover {
-        background-color: $background-dark;
+        background-color: $blue-grey-darker;
       }
 
       &.active {
-        background-color: $background-darken;
-        color: $color-light;
+        background-color: $blue-grey-darken;
+        color: $whitest;
         cursor: default;
       }
     }
