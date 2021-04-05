@@ -1,0 +1,49 @@
+@import "src/theme/colors";
+
+.Security {
+  form {
+    margin-top: 2em;
+
+    article {
+      display: flex;
+      margin-bottom: 1.2em;
+
+      .Label {
+        width: 33%;
+
+        .Description {
+          color: $blue-grey-darken;
+          font-size: 0.8em;
+          margin-top: 0.2em;
+        }
+      }
+
+      .Field {
+        width: 33%;
+
+        input {
+          &[type=checkbox] {
+            border: 1px solid $blue-grey-darker;
+            border-radius: 0.6em;
+            height: 2em;
+            width: 2em;
+          }
+
+          &[type=password] {
+            border: 1px solid $blue-grey-darker;
+            border-radius: 0.6em;
+            display: block;
+            height: 3em;
+            padding: 0 1em;
+            width: 100%;
+
+            &:focus {
+              border-color: $light-dark-grey;
+              outline: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

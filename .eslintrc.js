@@ -53,6 +53,8 @@ module.exports = {
     ],
     'react/no-danger': 0,
 
+    'jsx-a11y/label-has-associated-control': 0,
+
     'jest/no-hooks': 'off',
 
     'no-console': 0,

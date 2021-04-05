@@ -1,4 +1,7 @@
 {
+  "Account.caption": "Все настройки вашего аккаунта",
+  "Account.security": "Безопасность",
+  "Account.title": "Аккаунт",
   "Campaigns.caption": "Полный список ваших кампаний",
   "Campaigns.comments": "Комментарии",
   "Campaigns.createNew": "Создать",

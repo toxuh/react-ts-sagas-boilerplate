@@ -1,4 +1,7 @@
 {
+  "Account.caption": "Change your info and preferences",
+  "Account.security": "Security",
+  "Account.title": "Account",
   "Campaigns.caption": "Here you can see your campaigns",
   "Campaigns.comments": "comments",
   "Campaigns.createNew": "Create new campaign",
