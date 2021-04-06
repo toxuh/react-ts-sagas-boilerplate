@@ -17,7 +17,7 @@ export default (state = initialState, action: UserActionTypes): UserState => {
     case TOGGLE_LOGIN:
       return {
         ...state,
-        isLogged: true,
+        isLogged: action.payload,
       };
 
     case FETCH_USER_DATA_SUCCESS:

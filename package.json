@@ -10,6 +10,7 @@
     "@umijs/hooks": "^1.9.3",
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
+    "connected-react-router": "^6.9.1",
     "formik": "^2.2.5",
     "humps": "^2.0.1",
     "immer": "^8.0.0",

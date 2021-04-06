@@ -22,9 +22,12 @@ export const registerUser = (
   data: UserRegistrationType,
 ): Generator<StrictEffect> =>
   handleRequest(REGISTER_USER, {
-    url: AuthURL(''),
+    url: 'auth/users',
     method: 'post',
-    data,
+    data: {
+      ...data,
+      username: data.email,
+    },
   });
 
 export const loginUser = (data: UserLoginType): Generator<StrictEffect> =>

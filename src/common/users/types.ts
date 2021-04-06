@@ -22,7 +22,6 @@ export type UserType = {
 
 export type UserRegistrationType = {
   email: string;
-  username: string;
   password: string;
 };
 

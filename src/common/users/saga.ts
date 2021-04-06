@@ -24,6 +24,8 @@ export function* login({
 
   if (response.auth_token) {
     store.set(LS_TOKEN_NAME, response.auth_token);
+
+    // window.location.assign('/dashboard');
   }
 
   return response;

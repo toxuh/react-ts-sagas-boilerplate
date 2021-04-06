@@ -19,7 +19,6 @@ const SignUp: React.FC = () => {
   const initialValues = {
     email: '',
     password: '',
-    username: '',
   };
 
   const { values, handleChange, handleSubmit } = useFormik({
@@ -41,17 +40,8 @@ const SignUp: React.FC = () => {
     <div className="Sign">
       <form onSubmit={handleSubmit}>
         <h3>{intl.formatMessage(messages.title)}</h3>
-        <label htmlFor="username">
-          {intl.formatMessage(messages.username)}:
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={values.username}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="username">
+
+        <label htmlFor="email">
           {intl.formatMessage(messages.email)}:
           <input
             type="email"
@@ -61,7 +51,7 @@ const SignUp: React.FC = () => {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="username">
+        <label htmlFor="password">
           {intl.formatMessage(messages.password)}:
           <input
             type="password"
