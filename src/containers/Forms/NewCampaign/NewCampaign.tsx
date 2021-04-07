@@ -21,12 +21,12 @@ const NewCampaign: React.FC<Props> = ({
   handleCloseModal,
   handleSubmitForm,
   initialValues = {
-    channel_id: '',
-    channel_title: '',
+    channelId: '',
+    channelTitle: '',
     description: '',
     duration: 0,
     link: '',
-    video_publish_date: '',
+    videoPublishDate: '',
     thumbnail: '',
     title: '',
     total: 0,
@@ -68,10 +68,10 @@ const NewCampaign: React.FC<Props> = ({
     if (videoData) {
       setValues({
         ...values,
-        channel_id: videoData.channelId,
-        channel_title: videoData.channelTitle,
+        channelId: videoData.channelId,
+        channelTitle: videoData.channelTitle,
         description: videoData.description,
-        video_publish_date: videoData.publishedAt,
+        videoPublishDate: videoData.publishedAt,
         thumbnail: videoData.thumbnails.default.url,
         title: videoData.title,
       });

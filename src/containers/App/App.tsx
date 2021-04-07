@@ -29,7 +29,6 @@ const App: React.FC = () => {
           <Route path="/sign-up" component={SignUp} exact />
           <Route path="/sign-in" component={SignIn} exact />
         </Switch>
-        <Redirect to="/sign-up" />
       </>
     );
   }

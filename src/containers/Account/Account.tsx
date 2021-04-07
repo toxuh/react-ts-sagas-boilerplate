@@ -6,11 +6,13 @@ import { Card, Section } from '../../components';
 
 import Security from './Security';
 
+import useAccount from './useAccount';
 import messages from './messages';
 import './Account.scss';
 
 const Account: React.FC = () => {
   const intl = useIntl();
+  const { user } = useAccount();
 
   return (
     <Section
@@ -24,7 +26,7 @@ const Account: React.FC = () => {
       <Card title="Linked accounts" icon={<FaYoutube />}>
         Accounts
       </Card>
-      <Security is2FactorAuthentication={false} />
+      <Security is2FactorAuthentication={user ? user.settings2Factor : false} />
       <Card title="Preferences" icon={<FaCog />}>
         Preferences
       </Card>

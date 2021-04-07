@@ -20,29 +20,6 @@
 
       .Field {
         width: 33%;
-
-        input {
-          &[type=checkbox] {
-            border: 1px solid $blue-grey-darker;
-            border-radius: 0.6em;
-            height: 2em;
-            width: 2em;
-          }
-
-          &[type=password] {
-            border: 1px solid $blue-grey-darker;
-            border-radius: 0.6em;
-            display: block;
-            height: 3em;
-            padding: 0 1em;
-            width: 100%;
-
-            &:focus {
-              border-color: $light-dark-grey;
-              outline: 0;
-            }
-          }
-        }
       }
     }
   }

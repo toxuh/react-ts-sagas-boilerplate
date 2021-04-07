@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { useFormik } from 'formik';
 import { FaShieldAlt } from 'react-icons/fa';
 
-import { Card } from '../../components';
+import { Card, Input } from '../../components';
 
 import messages from './messages';
 import './Security.scss';
@@ -38,7 +38,7 @@ const Security: React.FC<Props> = ({ is2FactorAuthentication }) => {
             <div className="Description">Description</div>
           </div>
           <div className="Field">
-            <input
+            <Input
               type="checkbox"
               id="is2FactorAuthentication"
               name="is2FactorAuthentication"
@@ -53,7 +53,7 @@ const Security: React.FC<Props> = ({ is2FactorAuthentication }) => {
             <div className="Description">Description</div>
           </div>
           <div className="Field">
-            <input
+            <Input
               type="password"
               id="password"
               name="password"
@@ -68,7 +68,7 @@ const Security: React.FC<Props> = ({ is2FactorAuthentication }) => {
             <div className="Description">Description</div>
           </div>
           <div className="Field">
-            <input
+            <Input
               type="password"
               id="confirmPassword"
               name="confirmPassword"

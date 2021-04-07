@@ -25,12 +25,12 @@ export type CampaignType = {
 };
 
 export type CreateNewCampaignType = {
-  channel_id: string;
-  channel_title: string;
+  channelId: string;
+  channelTitle: string;
   description: string;
   duration: number;
   link: string;
-  video_publish_date: string;
+  videoPublishDate: string;
   thumbnail: string;
   title: string;
   total: number;

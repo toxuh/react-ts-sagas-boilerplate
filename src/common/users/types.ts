@@ -13,11 +13,21 @@ export const LOGIN_USER_SUCCESS = 'LOGIN_USER/SUCCESS';
 export const LOGIN_USER_ERROR = 'LOGIN_USER/ERROR';
 
 export type UserType = {
+  username: string;
+  firstName: null | string;
+  lastName: null | string;
+  gender: null | string;
+  yearOfBirth: null | string;
+  timezone: null | string;
+  interests: string;
+  level: number;
+  credits: number;
+  sessions: number;
+  settings2Factor: boolean;
+  settingsNightMode: boolean;
+  settingsAnonymizeUsername: boolean;
   id: number;
   email: string;
-  firstName: string;
-  lastName: string;
-  username: string;
 };
 
 export type UserRegistrationType = {
