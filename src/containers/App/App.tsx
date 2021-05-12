@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 
 import Account from '../Account/Account';
 import Campaigns from '../Campaigns/Campaigns';

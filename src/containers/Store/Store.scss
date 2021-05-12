@@ -1,0 +1,51 @@
+@import "src/theme/colors";
+
+.Store {
+  .Main {
+    padding-right: 1em;
+    width: 70%;
+
+    .Holder {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      h4 {
+        margin-bottom: 0.8em;
+        width: 100%;
+      }
+
+      .Description {
+        color: $blue-grey-darken;
+        height: 2.5em;
+        line-height: 1.4em;
+        margin: 2em 0 1.5em;
+      }
+    }
+  }
+
+  .Stats {
+    width: 30%;
+
+    h4 {
+      margin-bottom: 0.8em;
+    }
+
+    article {
+      display: flex;
+      margin-bottom: 1em;
+      width: 100%;
+
+      > div {
+        &:first-child {
+          width: 75%;
+
+          .Description {
+            color: $blue-grey-darken;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
